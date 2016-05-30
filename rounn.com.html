@@ -1,0 +1,203 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Rounn</title>
+
+<!-- SEO meta -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8" />
+<meta content='Rounn' name='description'/>
+<meta content='Rounn, www.rounn.com, Rounn, Bags' name='keywords'/> 
+<!--<meta name="robots" content="noindex, nofollow" />-->
+<meta http-equiv="content-language" content="en" />
+<!--<meta name="google" content="notranslate" />-->
+
+<link href="./index.css" rel="stylesheet" type="text/css"/>
+<link href="./xlogo.png" rel="shortcut icon" type="image/x-icon"/>
+
+<script type="text/javascript" src="./jquery-1.7.2.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="./slippry.js"></script>
+<link rel="stylesheet" href="http://rounn.com/js/slip/slippry.css" />
+<script src="./jquery.cookie.js"></script>
+
+<script> 
+function hide_pop()
+{
+	$('#dialog_wrapper').fadeOut(300);	
+}
+</script> 
+
+<script> 
+$(document).ready(function(){
+    var visited = $.cookie('visited'); // create the cookie
+    if (visited == 'yes') {
+        $('#dialog_wrapper').hide(); // second page load, cookie is active so do nothing
+    } else {
+        $('#dialog_wrapper').hide(); // first page load, launch fancybox
+    };
+    // assign cookie's value and expiration time
+    $.cookie('visited', 'yes', {
+        expires: 1 // the number of days the cookie will be effective
+    });
+	
+	jQuery(document).ready(function(){
+		jQuery('#slippry').slippry();
+	});
+	
+	$('.menu').hide();
+	$('#design').click(function(){
+		$('.menu').toggle(300);
+	});
+});
+</script>
+
+</head>
+
+<body>
+
+<!--
+<div id="dialog_wrapper">
+<div id="dialog">
+  <img src="./summer2015_13d.jpg"/>
+  <input type="button" value="SHOP NOW" class="shopnow" onclick="hide_pop()"/>
+</div>
+</div> 
+-->
+
+<div id="dialog_wrapper">
+<div id="dialog">
+  <input type="button" value="SHOP NOW" class="shopnow" onclick="hide_pop()"/>
+</div>
+</div>
+
+<header>
+<nav>
+<div><a href="./lookbook.html">LOOKBOOK</a></div>
+<div><a href="#" id="design">SHOP</a>
+	<div class="menu">
+    	  <a href="./design.html">MANHATTAN BAG</a><br />
+        <a href="./design_1.html">CLASSIC CLUTCH</a><br />
+        <a href="./moneypurse.html">MONEY PURSE</a><br />
+        <a href="./accessories.html">ACCESSORIES</a>
+    </div>
+</div>
+<div><a href="./about.html">ABOUT</a></div>
+<div><a href="./contact.html">CONTACT</a></div>
+<div><a href="help">HELP</a></div>
+
+<br /><br />
+
+<div>
+<a href="./login.html">LOG IN / SIGN UP</a>
+</div>
+
+<div><a href="./shopping.html">SHOPPING BAG (0)</a></div>
+</nav>
+
+<div class="head">
+<a href="./rounn.com.html"><img src="./logo_ROUNN.png" class="logo"/></a><br />
+<img src="./header_shadow.png" class="shadow"/>
+<div class="slider">
+<ul id="slippry">
+  <li>
+    <a href="./design.html"><img src="./campaign.jpg" alt=""></a>
+  </li>
+  
+  <li>
+    <a><iframe src="https://www.youtube.com/embed/9GqbM-Gp4dw?rel=0" frameborder="0" allowfullscreen></iframe></a>
+  </li>
+  
+  <!--
+  <li>
+    <a><img src="./slider_13.jpg" alt=""></a>
+  </li>
+  <li>
+    <a><img src="./slider_17.jpg" alt=""></a>
+  </li>
+  <li>
+    <a><img src="./slider_18.jpg" alt=""></a>
+  </li>
+  <li>
+    <a><img src="./slider_19.jpg" alt=""></a>
+  </li>
+  <li>
+    <a><img src="./slider_20.jpg" alt=""></a>
+  </li>
+  <li>
+    <a><img src="./slider_21.jpg" alt=""></a>
+  </li>
+  <li>
+    <a><img src="http://rounn.com/img/global/slider_22.jpg" alt=""></a>
+  </li>
+  <li>
+    <a><img src="http://rounn.com/img/global/slider_23.jpg" alt=""></a>
+  </li>
+  <li>
+    <a><img src="http://rounn.com/img/global/slider_1.jpg" alt=""></a>
+  </li>
+  <li>
+    <a><img src="http://rounn.com/img/global/slider_2.jpg" alt=""></a>
+  </li>
+  <li>
+    <a><img src="http://rounn.com/img/global/slider_3.jpg" alt=""></a>
+  </li>
+  <li>
+    <a><img src="http://rounn.com/img/global/slider_4.jpg" alt=""></a>
+  </li>
+  <li>
+    <a><img src="http://rounn.com/img/global/slider_5.jpg" alt=""></a>
+  </li>
+  <li>
+    <a><img src="http://rounn.com/img/global/slider_6.jpg" alt=""></a>
+  </li>
+  <li>
+  	<a><img src="http://rounn.com/img/global/slider_7.jpg" alt=""></a>
+  </li>
+  <li>
+    <a><img src="http://rounn.com/img/global/slider_8.jpg" alt=""></a>
+  </li>
+  <li>
+    <a><img src="http://rounn.com/img/global/slider_9.jpg" alt=""></a>
+  </li>
+  <li>
+    <a><img src="http://rounn.com/img/global/slider_10.jpg" alt=""></a>
+  </li>
+  <li>
+    <a><img src="http://rounn.com/img/global/slider_11.jpg" alt=""></a>
+  </li>
+  <li>
+    <a><img src="http://rounn.com/img/global/slider_12.jpg" alt=""></a>
+  </li>
+  -->
+</ul>
+</div>
+</div>
+</header>
+
+
+<footer>
+<div class="share">
+	SHARE <br />
+    <a href="http://www.facebook.com/sharer/sharer.php?u=http://www.rounn.com" target="_blank">
+    <img src="http://rounn.com/img/global/share_fb.png" /></a>
+    
+    <a href="http://twitter.com/share?url=http://www.rounn.com" target="_blank">
+    <img src="http://rounn.com/img/global/share_twitter.png" /></a>
+    
+    <a href=" http://pinterest.com/pin/create/button/?url=http://www.rounn.com" target="_blank">
+    <img src="http://rounn.com/img/global/share_pinterest.png" /></a>
+</div>
+<div class="copyright">
+All content of our website (including text, graphics, logos, button icons, images, and software) is the property of ROUNN and is protected by international
+copyright laws. The trademarks, logos, service marks, and trade names of ROUNN and may not be used without our written permission.
+<br /><br />
+Copyright &copy; Rounn 2014. All rights reserved. Developed by <a href="http://viencistudio.com" target="_blank">Vienci Studio</a>
+</div>
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,720 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Rounn</title>
+
+<!-- SEO meta -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8" />
+<meta content='Rounn' name='description'/>
+<meta content='Rounn, www.rounn.com, Rounn, Bags' name='keywords'/> 
+<!--<meta name="robots" content="noindex, nofollow" />-->
+<meta http-equiv="content-language" content="en" />
+<!--<meta name="google" content="notranslate" />-->
+
+<link href="css/index.css" rel="stylesheet" type="text/css"/>
+<link href="img/global/xlogo.png" rel="shortcut icon" type="image/x-icon"/>
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script> 
+$(document).ready(function(){
+	$('#wrapname').hide();
+	$('#cname').prop('disabled', true);
+	
+	$('#swrapname').hide();
+	$('#scname').prop('disabled', true);
+	
+	//FUNCTION HTML5 VALIDATION
+	function hasHtml5Validation () {
+		  return typeof document.createElement('input').checkValidity === 'function';
+		}
+		
+		if (hasHtml5Validation()) {
+		  $('.validate-form').submit(function (e) {
+			if (!this.checkValidity()) {
+				 e.preventDefault();
+			  $(this).addClass('invalid');
+			} else {
+			  $(this).removeClass('invalid');
+			}
+		  });
+		}
+			
+	$('#forgot').hide();
+	
+	$('#reset_email').focus(function() {
+		$('#forgot').slideDown('fast');
+	});
+	$('#reset_email').blur(function() {
+		$('#forgot').slideUp('fast');
+	});
+			
+	$('#step_cart').fadeIn();
+	$('#step_billing').hide();
+	$('#step_summary').hide();
+	
+	$('.proceed').click(function() {
+		$('#step_cart').hide();
+		$('#step_billing').fadeIn();
+		$('#step_summary').hide();
+	});
+	
+	$('#backbag').click(function() {
+		$('#step_cart').fadeIn();
+		$('#step_billing').hide();
+		$('#step_summary').hide();
+	});	
+	
+	$('#summary').click(function() {
+		$('#step_cart').hide();
+		$('#step_billing').hide();
+		$('#step_summary').fadeIn();
+	});	
+	
+	$('#backbilling').click(function() {
+		$('#step_cart').hide();
+		$('#step_billing').fadeIn();
+		$('#step_summary').hide();
+	});	
+
+        $('.menu').hide();
+	$('#design').click(function(){
+		$('.menu').toggle(300);
+	});
+	
+	$('#summary').click(function()
+	{
+	if(document.getElementById("chkgift").checked == true )
+	{
+	   if(document.getElementById("shipname").value == "" || document.getElementById("shipaddress").value == "" || 
+	   document.getElementById("shipphone").value == "" || document.getElementById("shipcountry").value == "" || 
+	   document.getElementById("shipcity").value == "" || document.getElementById("shipzip").value == "" )
+	   {
+		   alert( "Please check your shipping details!" );
+		 	$('#step_cart').hide();
+			$('#step_billing').show();
+			$('#step_summary').hide();
+	   }
+	}
+	});	
+	
+	document.getElementById("shipname").disabled = true;
+	document.getElementById("shipphone").disabled = true;
+	document.getElementById("shipaddress").disabled = true;
+	document.getElementById("shipcountry").disabled = true;
+	document.getElementById("shipcity").disabled = true;
+	document.getElementById("shipzip").disabled = true;
+	document.getElementById("shipmessage").disabled = true;
+	
+	document.getElementById("shipname").style.backgroundColor = "#F4F4F4";
+	document.getElementById("shipphone").style.backgroundColor = "#F4F4F4";
+	document.getElementById("shipaddress").style.backgroundColor = "#F4F4F4";
+	document.getElementById("shipcountry").style.backgroundColor = "#F4F4F4";
+	document.getElementById("shipcity").style.backgroundColor = "#F4F4F4";
+	document.getElementById("shipzip").style.backgroundColor = "#F4F4F4";
+	document.getElementById("shipmessage").style.backgroundColor = "#F4F4F4";
+
+
+});
+</script>
+
+<script>
+function changeCountry() {
+	if(document.getElementById("cbcountry").value == 3)
+	{
+		$("#cname").prop('disabled', false);
+		$('#wrapname').slideDown();
+	}
+	else {
+		$("#cname").prop('disabled', true);
+		$('#wrapname').slideUp();
+	}
+}	
+function changeShipCountry() {
+	if(document.getElementById("shipcountry").value == 3)
+	{
+		$("#scname").prop('disabled', false);
+		$('#swrapname').slideDown();
+		
+		//$("#scname").val('');
+	}
+	else {
+		$("#scname").prop('disabled', true);
+		$('#swrapname').slideUp();
+		
+		$("#scname").val('');
+	}
+}		
+function formcheck() {
+	rounnform.proceed_pay.disabled = true;
+	document.getElementById("proceed_pay").value = "Processing...";
+	document.getElementById("rounnform").submit();
+}
+function signupcheck() {
+	signupform.signupproceed.disabled = true;
+	document.getElementById("signupproceed").value = "Processing...";
+	document.getElementById("signupform").submit();
+}
+
+//FUNCTION CHANGE SHIPPING
+function changeShipping() {
+	if(document.getElementById("chkgift").checked == true) {
+		document.getElementById("shipname").disabled = false;
+		document.getElementById("shipphone").disabled = false;
+		document.getElementById("shipaddress").disabled = false;
+		document.getElementById("shipcountry").disabled = false;
+		document.getElementById("shipcity").disabled = false;
+		document.getElementById("shipzip").disabled = false;
+		document.getElementById("shipmessage").disabled = false;
+		document.getElementById("scname").disabled = false;
+		
+		document.getElementById("shipname").style.backgroundColor = "#FFF";
+		document.getElementById("shipphone").style.backgroundColor = "#FFF";
+		document.getElementById("shipaddress").style.backgroundColor = "#FFF";
+		document.getElementById("shipcountry").style.backgroundColor = "#FFF";
+		document.getElementById("shipcity").style.backgroundColor = "#FFF";
+		document.getElementById("shipzip").style.backgroundColor = "#FFF";
+		document.getElementById("shipmessage").style.backgroundColor = "#FFF";
+		document.getElementById("scname").style.backgroundColor = "#FFF";
+	}
+	else {
+		document.getElementById("shipname").disabled = true;
+		document.getElementById("shipphone").disabled = true;
+		document.getElementById("shipaddress").disabled = true;
+		document.getElementById("shipcountry").disabled = true;
+		document.getElementById("shipcity").disabled = true;
+		document.getElementById("shipzip").disabled = true;
+		document.getElementById("shipmessage").disabled = true;
+		document.getElementById("scname").disabled = true;
+		
+		document.getElementById("shipname").style.backgroundColor = "#F4F4F4";
+		document.getElementById("shipphone").style.backgroundColor = "#F4F4F4";
+		document.getElementById("shipaddress").style.backgroundColor = "#F4F4F4";
+		document.getElementById("shipcountry").style.backgroundColor = "#F4F4F4";
+		document.getElementById("shipcity").style.backgroundColor = "#F4F4F4";
+		document.getElementById("shipzip").style.backgroundColor = "#F4F4F4";
+		document.getElementById("shipmessage").style.backgroundColor = "#F4F4F4";
+		document.getElementById("scname").style.backgroundColor = "#F4F4F4";
+	}
+}
+
+//FUNCTION NUMBER FORMAT
+function number_format(number, decimals, dec_point, thousands_sep) {
+			  //  discuss at: http://phpjs.org/functions/number_format/
+			  // original by: Jonas Raoni Soares Silva (http://www.jsfromhell.com)
+			  // improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+			  // improved by: davook
+			  // improved by: Brett Zamir (http://brett-zamir.me)
+			  // improved by: Brett Zamir (http://brett-zamir.me)
+			  // improved by: Theriault
+			  // improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+			  // bugfixed by: Michael White (http://getsprink.com)
+			  // bugfixed by: Benjamin Lupton
+			  // bugfixed by: Allan Jensen (http://www.winternet.no)
+			  // bugfixed by: Howard Yeend
+			  // bugfixed by: Diogo Resende
+			  // bugfixed by: Rival
+			  // bugfixed by: Brett Zamir (http://brett-zamir.me)
+			  //  revised by: Jonas Raoni Soares Silva (http://www.jsfromhell.com)
+			  //  revised by: Luke Smith (http://lucassmith.name)
+			  //    input by: Kheang Hok Chin (http://www.distantia.ca/)
+			  //    input by: Jay Klehr
+			  //    input by: Amir Habibi (http://www.residence-mixte.com/)
+			  //    input by: Amirouche
+			  //   example 1: number_format(1234.56);
+			  //   returns 1: '1,235'
+			  //   example 2: number_format(1234.56, 2, ',', ' ');
+			  //   returns 2: '1 234,56'
+			  //   example 3: number_format(1234.5678, 2, '.', '');
+			  //   returns 3: '1234.57'
+			  //   example 4: number_format(67, 2, ',', '.');
+			  //   returns 4: '67,00'
+			  //   example 5: number_format(1000);
+			  //   returns 5: '1,000'
+			  //   example 6: number_format(67.311, 2);
+			  //   returns 6: '67.31'
+			  //   example 7: number_format(1000.55, 1);
+			  //   returns 7: '1,000.6'
+			  //   example 8: number_format(67000, 5, ',', '.');
+			  //   returns 8: '67.000,00000'
+			  //   example 9: number_format(0.9, 0);
+			  //   returns 9: '1'
+			  //  example 10: number_format('1.20', 2);
+			  //  returns 10: '1.20'
+			  //  example 11: number_format('1.20', 4);
+			  //  returns 11: '1.2000'
+			  //  example 12: number_format('1.2000', 3);
+			  //  returns 12: '1.200'
+			  //  example 13: number_format('1 000,50', 2, '.', ' ');
+			  //  returns 13: '100 050.00'
+			  //  example 14: number_format(1e-8, 8, '.', '');
+			  //  returns 14: '0.00000001'
+			
+			  number = (number + '')
+				.replace(/[^0-9+\-Ee.]/g, '');
+			  var n = !isFinite(+number) ? 0 : +number,
+				prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+				sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+				dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+				s = '',
+				toFixedFix = function(n, prec) {
+				  var k = Math.pow(10, prec);
+				  return '' + (Math.round(n * k) / k)
+					.toFixed(prec);
+				};
+			  // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+			  s = (prec ? toFixedFix(n, prec) : '' + Math.round(n))
+				.split('.');
+			  if (s[0].length > 3) {
+				s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+			  }
+			  if ((s[1] || '')
+				.length < prec) {
+				s[1] = s[1] || '';
+				s[1] += new Array(prec - s[1].length + 1)
+				  .join('0');
+			  }
+			  return s.join(dec);
+	}
+
+//FUNCTION CHECKSHIP
+function checkShip(str)
+{
+	var xmlhttp;
+		
+	if (window.XMLHttpRequest)
+	{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else
+	{// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			document.getElementById("total_ship1").value = xmlhttp.responseText;
+			document.getElementById("total_ship1").value = number_format(parseFloat(document.getElementById("total_ship1").value*document.getElementById("total_qty").value).toFixed(0));
+		}
+	}
+				
+	xmlhttp.open("GET","php/get_shipping.php?q="+str,true);
+	xmlhttp.send();
+}
+
+//FUNCTION CHECKSHIPHIDDEN
+function checkShipHidden(str)
+{
+	var xmlhttp;
+		
+	if (window.XMLHttpRequest)
+	{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else
+	{// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			document.getElementById("total_ship2").value = xmlhttp.responseText;
+			document.getElementById("total_ship2").value = document.getElementById("total_ship2").value*document.getElementById("total_qty").value;
+			document.getElementById("totalbagfee").value = 
+			number_format(parseFloat(document.getElementById("totalshoppingbag").value) + parseFloat(document.getElementById("total_ship2").value));
+			
+			document.getElementById("totalbagfeehidden").value = 
+			parseFloat(document.getElementById("totalshoppingbag").value) + parseFloat(document.getElementById("total_ship2").value);
+		}
+	}
+				
+	xmlhttp.open("GET","php/get_shipping.php?q="+str,true);
+	xmlhttp.send();
+}
+
+//FUNCTION CHECKCUSTSHIP
+function checkCustShip()
+{
+	if (document.getElementById("chkgift").checked == true) {
+		checkShip(document.getElementById("shipcountry").value);
+		checkShipHidden(document.getElementById("shipcountry").value);	
+		$("#purchase_shipping").show();
+		
+		document.getElementById("sname").value = document.getElementById("shipname").value;
+		document.getElementById("sphone").value = document.getElementById("shipphone").value;
+		document.getElementById("saddress").value = document.getElementById("shipaddress").value;
+		document.getElementById("scountry").value = document.getElementById("shipcbocountry").value + ' - ' + document.getElementById("scname").value;
+		document.getElementById("scity").value = document.getElementById("shipcity").value;
+		document.getElementById("szip").value = document.getElementById("shipzip").value;
+		document.getElementById("smessage").value = document.getElementById("shipmessage").value;
+	}
+	else if (document.getElementById("chkgift").checked == false) {
+		checkShip(document.getElementById("txtcountry_hidden").value);
+		checkShipHidden(document.getElementById("txtcountry_hidden").value);
+		$("#purchase_shipping").hide();
+	} 	
+}
+
+//FUNCTION CHECKCOUNTRY
+function checkCountry(str)
+{
+	var xmlhttp;
+		
+	if (window.XMLHttpRequest)
+	{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else
+	{// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			document.getElementById("shipcbocountry").value = xmlhttp.responseText;
+		}
+	}
+				
+	xmlhttp.open("GET","php/get_country.php?q="+str,true);
+	xmlhttp.send();
+}
+
+
+</script>
+
+</head>
+
+<body>
+
+
+<header>
+<nav>
+<div><a href="lookbook">LOOKBOOK</a></div>
+<div><a href="#" id="design">SHOP</a>
+	<div class="menu">
+    	<a href="design?category=Manhattan">MANHATTAN BAG</a><br />
+        <a href="design?category=Clutch">CLASSIC CLUTCH</a><br />
+        <a href="moneypurse">MONEY PURSE</a><br />
+        <a href="accessories">ACCESSORIES</a>
+    </div>
+</div>
+<div><a href="about">ABOUT</a></div>
+<div><a href="contact">CONTACT</a></div>
+<div><a href="help">HELP</a></div>
+
+<br /><br />
+
+<div>
+<a href="login">LOG IN / SIGN UP</a>
+</div>
+
+<div><a href="shopping">SHOPPING BAG (0)</a></div>
+</nav>
+
+<div class="head">
+<a href="http://rounn.com"><img src="img/global/logo_ROUNN.png" class="logo"/></a><br />
+<img src="img/global/header_shadow.png" class="shadow"/>
+
+
+
+<!-- STEP CART -->
+<form action="php/process_cart" method="post" name="rounnform" id="rounnform">
+<div class="shopping" id="step_cart">
+<h2>SHOPPING BAG</h2>
+<table class="tcurrency">
+<tr>
+	<td align="left"><b>Currency : <a href="php/set_idr">IDR</a> / <a href="php/set_usd">USD</a></b></td>
+    <td align="right" style="color:#C00"><a href="empty_cart" style="color:#C00">
+    <img src="img/global/delete.png" style="width:18px;vertical-align:text-bottom;"/> CLEAR</a></td>
+</tr>
+</table>
+<table class="thead">
+<tr>
+	<td align="left" width="55%">ITEM</td>
+    <td align="left" width="15%">PRICE</td>
+    <td align="left" width="12%">QTY</td>
+    <td align="left" width="20%">TOTAL PRICE</td>
+</tr>
+</table>
+<table class="tcontent">
+<tr>
+	<td>No items in your shopping bag <br /><br /></td>
+</tr>
+<tr>
+	<td style="border:none"><a href="design"><input type="button" value="DESIGN NOW" /></a> <br /><br /><br /><br /></td>
+</tr>
+</table>
+
+</div>
+<!-- END OF CART -->
+
+
+<!-- STEP SUMMARY -->
+<div class="shopping" id="step_summary">
+<h2>ORDER SUMMARY</h2><br />
+
+<table class="summary">
+<tr>
+	<td>DEAR </td>
+    <td>: </td>
+    <td><input type="text" value="" name="txtname" disabled id="disabled"/></td>
+</tr>
+<tr>
+	<td>E-MAIL </td>
+    <td>: </td>
+    <td><input type="text" value="" name="txtemail" disabled id="disabled"/></td>
+</tr>
+<tr>
+	<td>PHONE NUMBER </td>
+    <td>: </td>
+    <td><input type="text" value="" name="txtphone" disabled id="disabled"/></td>
+</tr>
+<tr>
+	<td>ADDRESS </td>
+    <td>: </td>
+    <td><input type="text" value="" name="txtaddress" disabled id="disabled"/></td>
+</tr>
+<tr>
+	<td>COUNTRY </td>
+    <td>: </td>
+    <td><input type="text" value=" - " name="txtcountry" disabled id="disabled"/></td>
+</tr>
+<tr>
+	<td>CITY </td>
+    <td>: </td>
+    <td><input type="text" value="" name="txtcity" disabled id="disabled"/></td>
+</tr>
+<tr>
+	<td>ZIP CODE </td>
+    <td>: </td>
+    <td><input type="text" value="" name="txtzip" disabled id="disabled"/></td>
+</tr>
+</table>
+
+<input type="hidden" value="" name="tname"/>
+<input type="hidden" value="" name="tphone"/>
+<input type="hidden" value="" name="taddress"/>
+<input type="hidden" value="" name="tcountry"/>
+<input type="hidden" value="" name="tcountryname"/>
+<input type="hidden" value="" name="tcity"/>
+<input type="hidden" value="" name="tzip"/>
+
+<table class="thead">
+<tr>
+	<td align="left" width="55%">ITEM</td>
+    <td align="left" width="15%">PRICE</td>
+    <td align="left" width="12%">QTY</td>
+    <td align="left" width="20%">TOTAL PRICE</td>
+</tr>
+</table>
+
+<table class="tcontent">
+
+</td>
+</tr>
+<tr>
+	<td colspan="5" align="right" style="background-color:#EAEAEA;padding:10px">TOTAL SHOPPING BAG : IDR 0    <input type="hidden" value="" name="txtshoppingbag" id="totalshoppingbag"/></td>
+</tr>
+<tr>
+	<td colspan="5" align="right" style="border:none">SHIPPING FEE : IDR 
+    <input type="text" id="total_ship1" class="disabled" disabled /> 
+    <input type="hidden" id="total_ship2" name="txtshipping" /> 
+    <input type="hidden" id="total_qty" name="txttotalqty" value="" /></td>
+</tr>
+<tr>
+	<td colspan="5" align="right" style="border:none">TOTAL SHOPPING BAG + SHIPPING FEE : IDR    <input type="text" id="totalbagfee" class="disabled" disabled />
+    <input type="hidden" id="totalbagfeehidden" name="txttotalbagfee" class="disabled" /></td>
+</tr>
+</table>
+
+
+<table class="summary" style="margin-top:-80px;margin-bottom:100px;" id="purchase_shipping">
+<tr>
+	<td colspan="3">PURCHASED ITEM WILL BE SENT AS GIFT TO <hr /></td>
+</tr>
+<tr>
+	<td>DEAREST </td>
+    <td>: </td>
+    <td><input type="text" disabled class="disable" id="sname"/></td>
+</tr>
+<tr>
+	<td>PHONE NUMBER </td>
+    <td>: </td>
+    <td><input type="text" disabled class="disable" id="sphone"/></td>
+</tr>
+<tr>
+	<td>ADDRESS </td>
+    <td>: </td>
+    <td><input type="text" disabled class="disable" id="saddress"/></td>
+</tr>
+<tr>
+	<td>COUNTRY </td>
+    <td>: </td>
+    <td><input type="text" disabled class="disable" id="scountry"/></td>
+</tr>
+<tr>
+	<td>CITY </td>
+    <td>: </td>
+    <td><input type="text" disabled class="disable" id="scity"/></td>
+</tr>
+<tr>
+	<td>ZIP CODE </td>
+    <td>: </td>
+    <td><input type="text" disabled class="disable" id="szip"></td>
+</tr>
+<tr>
+	<td>MESSAGE </td>
+    <td>: </td>
+    <td><input type="text" disabled class="disable" id="smessage"/></td>
+</tr>
+</table>
+
+
+<table class="tcontent" id="semisummary">
+<tr>
+	<td colspan="2">ADDITIONAL NOTES : <input type="text" name="txtnotes" style="padding:5px;border:1px solid #CCC;width:450px;" /></td>
+</tr>
+<tr>
+    <td>KINDLY TRANSFER THE TOTAL SHOPPING BAG AND SHIPPING FEE AMOUNT TO : <br />
+    <b>BCA ACCOUNT 0885927977 (IVAN TIONO) </b>
+    <br />
+    OR <br />
+    <b>PAY WITH PAYPAL AFTER YOU CONFIRM THIS ORDER. </b></td>
+    <td>Our customer service team is always at your service. <br /> Send your questions to <b>CUSTOMERCARE@ROUNN.COM</b></td>
+</tr>
+<tr>
+	<td colspan="2" align="center" style="border:none">
+    <input type="button" value="BACK TO BILLING" id="backbilling"/>
+    <input type="submit" value="PROCEED" id="proceed_pay" onclick="formcheck();return false" name="btnprocess"/></td>
+</tr>
+</table>
+
+</div>
+<!-- END OF SUMMARY -->
+
+
+<!-- STEP BILLING -->
+<form action="">
+</form>
+<div class="login" id="step_billing">
+<h2>BILLING DETAILS</h2>
+<div class="billing">Where shall we send your order? <br />
+Please log in / sign up first.</div>
+<div id="billing_detail">
+
+<table id="login">
+<form action="php/signin" method="post"> 
+<tr>
+	<td>E-MAIL<br />
+    <input type="text" name="loginemail"/></td>
+</tr>
+<tr>
+	<td>PASSWORD <br />
+    <input type="password" name="loginpass"/></td>
+</tr>
+
+<tr>
+	<td colspan="2"><input type="submit" value="LOG IN" /></td>
+</tr>
+</form>
+
+<form action="php/reset_password" method="post" class="validate-form">
+<tr>
+	<td style="padding-top:180px;">FORGOT YOUR PASSWORD ? <br />
+    <input type="text" name="resetemail" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" id="reset_email"/><br />
+    <input type="submit" value="SEND NEW PASSWORD" id="forgot"/>
+    <div class="forgot">
+    type in your e-mail. We will send a new password to your e-mail. You can later change password by going to 
+    'MY ACCOUNT' page or <b>click here</b>.
+    </div>
+    </td>
+</tr>
+</form>
+</table>
+
+<form action="php/signup" method="post" class="validate-form" id="signupform" name="signupform"> 
+<table id="signup">
+<tr>
+	<td colspan="2">E-MAIL <br />
+    <input type="text" name="txtemail" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" title="Provide valid email address"/></td>
+</tr>
+<tr>
+	<td colspan="2">PASSWORD <br />
+    <input type="password" name="txtpass" required pattern="[a-zA-Z0-9]{6,}" title="Minimum 6 letters or numbers and no space"/></td>
+</tr>
+<tr>
+	<td colspan="2">FULL NAME <br />
+    <input type="text" name="txtname" required /></td>
+</tr>
+<tr>
+	<td colspan="2">PHONE NUMBER <br />
+    <input type="text" name="txtphone" required/></td>
+</tr>
+<tr>
+	<td colspan="2">ADDRESS <br />
+    <textarea name="txtaddress" required></textarea></td>
+</tr>
+
+<tr>
+	<td colspan="2">COUNTRY <br />
+    <select name="cbocountry" required onchange="changeCountry()" id="cbcountry">
+		    	<option value="1">Indonesia (Java Island)</option>
+            	<option value="2">Indonesia (Outside Java Island)</option>
+            	<option value="3">Other Countries</option>
+            </select>
+    <div id="wrapname">SPECIFY YOUR COUNTRY NAME : <br /><input type="text" name="countryname" required="required" disabled="disabled" id="cname"/></div>
+    </td>
+</tr>
+
+<tr>
+	<td>CITY <br />
+    <input type="text" class="city" name="txtcity" required/></td>
+    <td>ZIP CODE <br />
+    <input type="text" class="zip" name="txtzip" required/></td>
+</tr>
+
+<tr>
+	<td colspan="2"><input type="submit" value="SIGN UP" id="signupproceed" onsubmit="signupcheck();return false;"/></td>
+</tr>
+</table>
+</form>
+</div>
+<!-- END OF STEP BILLING -->
+
+</div>
+</header>
+
+
+<footer>
+<div class="share">
+	SHARE <br />
+    <a href="http://www.facebook.com/sharer/sharer.php?u=http://www.rounn.com" target="_blank">
+    <img src="img/global/share_fb.png" /></a>
+    
+    <a href="http://twitter.com/share?url=http://www.rounn.com" target="_blank">
+    <img src="img/global/share_twitter.png" /></a>
+    
+    <a href=" http://pinterest.com/pin/create/button/?url=http://www.rounn.com" target="_blank">
+    <img src="img/global/share_pinterest.png" /></a>
+</div>
+<div class="copyright">
+All content of our website (including text, graphics, logos, button icons, images, and software) is the property of ROUNN and is protected by international
+copyright laws. The trademarks, logos, service marks, and trade names of ROUNN and may not be used without our written permission.
+<br /><br />
+Copyright &copy; Rounn 2014. All rights reserved. Developed by <a href="http://viencistudio.com" target="_blank">Vienci Studio</a>
+</div>
+</footer>
+
+
+</body>
+</html>
