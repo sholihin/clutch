@@ -11,6 +11,13 @@
     src: url(font/Didot-HTF-B06-Bold.otf);
 }
 
+.col3 {
+    width: 250px;
+    height:290px;
+    padding: 0px 50px;
+    float: left;
+}
+
 a {
 	text-decoration:none;
 	color:#000;
@@ -785,7 +792,7 @@ nav a:hover {
 .login #signup {
 	padding-left:30px;
 	float:left;
-	border-left:1px solid #CCC;
+	/*border-left:1px solid #CCC;*/
 }
 
 .login input, select {
@@ -1434,7 +1441,7 @@ nav a:hover {
 .login #signup {
 	padding-left:30px;
 	float:left;
-	border-left:1px solid #CCC;
+	/*border-left:1px solid #CCC;*/
 }
 
 .login input, select {
@@ -2092,7 +2099,7 @@ nav a:hover {
 .login #signup {
 	padding-left:30px;
 	float:left;
-	border-left:1px solid #CCC;
+	/*border-left:1px solid #CCC;*/
 }
 
 .login input, select {
