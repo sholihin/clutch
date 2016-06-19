@@ -2,7 +2,7 @@
 include "koneksi.php";
 $category = $_GET['category'];
 
-$sqlcategory = "SELECT * FROM category where category = '$category'";
+$sqlcategory = "SELECT * FROM category where id_category = '$category'";
 $qcategory = mysqli_query($koneksi, $sqlcategory);
 $rowCategory = mysqli_fetch_array($qcategory);
 ?>
@@ -13,11 +13,11 @@ $rowCategory = mysqli_fetch_array($qcategory);
 
 <section style="width:700px;padding:0 30px;text-align:center;">
 	<?php 
-	$query=mysqli_query($koneksi, "SELECT * FROM `product` where category_product = '$category' ORDER BY `name_product` ASC");
+	$query=mysqli_query($koneksi, "SELECT * FROM `product` where id_category = '$category' ORDER BY `name_product` ASC");
 	$numrow = mysqli_num_rows($query);
 	if($numrow > 0){
 
-		while($rowAll = mysqli_fetch_array($query)){
+		foreach($query as $rowAll){
 	?>
 		<div class="col3">
 			<div style="width:100%">

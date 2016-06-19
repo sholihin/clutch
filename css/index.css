@@ -11,9 +11,20 @@
     src: url(font/Didot-HTF-B06-Bold.otf);
 }
 
+.btn-warning {
+	margin-top: 10px;
+    margin-right: 5px;
+    padding: 5px 15px;
+    background-color: #03A9F4;
+    color: white;
+    border: 0px;
+    border-radius: 3px;
+    font-weight: 300;
+}
+
 .col3 {
     width: 250px;
-    height:290px;
+    height:200px;
     padding: 0px 50px;
     float: left;
 }
@@ -1665,8 +1676,9 @@ nav a:hover {
 .design h2 {
 	font-weight:100;
 	letter-spacing:1px;
-	margin-bottom:80px;
-	font-size:20px;
+	margin-bottom:20px;
+	font-size:14px;
+	margin-left: 30px;
 }
 
 .design p {
@@ -1679,7 +1691,7 @@ nav a:hover {
 	margin-bottom:50px;
 }
 .design .dim {
-	font-size:11px;
+	font-size:13px;
 }
 
 .design table {
@@ -1984,7 +1996,7 @@ nav a:hover {
 	padding:10px;
 	margin-bottom:90px;
 	margin-left:50px;
-	font-size:11px;
+	font-size:13px;
 	text-transform:uppercase;
 	letter-spacing:1px;
 }
@@ -2084,7 +2096,7 @@ nav a:hover {
 	margin-left:45px;
 	height:500px;
 	letter-spacing:1px;
-	font-size:10px;
+	font-size:13px;
 }
 
 .login table td {
@@ -2106,14 +2118,14 @@ nav a:hover {
 	width:250px;
 	border:2px solid #EAEAEA;
 	padding:3px;
-	font-size:11px;
+	font-size:13px;
 	font-family:JosefinSansReg;
 }
 .login textarea {
 	width:250px;
 	border:2px solid #EAEAEA;
 	padding:3px;
-	font-size:11px;
+	font-size:13px;
 	height:50px;
 	font-family:JosefinSansReg;
 }
@@ -2163,7 +2175,7 @@ footer .copyright {
 	float:left;
 	width:600px;
 	height:10px;
-	margin-top:40px;
+	margin-top:90px;
 }
 /* END OF FOOTER */
 

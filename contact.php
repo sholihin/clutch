@@ -1,10 +1,10 @@
 <div class="about">
 <h2>KONTAK KAMI</h2>
-<p>
+<p style="font-size:13px">
 Ukobag akan memberikan pengalaman belanja online yang terbaik. Kami akan senang untuk membantu menjawab setiap bisnis, pertanyaan komersial dan umum yang Anda miliki. Kirim email, dan kami akan mencoba untuk membalas sesegera mungkin.
 <br />
-<div style="letter-spacing:1px;text-align:center;">Email : <b>cs@ukobag.com</b><br>
-Instagram : <b>@ukobag</b>
+<div style="letter-spacing:1px;text-align:center;font-size:13px;">Email : <b>cs@clutch.com</b><br>
+Instagram : <b>@clutch</b>
 </div>
 </p>
 <img src="img/contact.jpg" style="margin-top:-20px;"/>

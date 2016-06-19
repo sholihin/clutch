@@ -1,5 +1,5 @@
 <div class="about">
-<p>
+<p style="font-size:13px">
 <b>PRODUCT INFORMATION</b><br><br>
 There might be a slight difference in the tone of colors depending on the resolution of your monitor. Do note that there may be a slight difference measurements depending on how the item is measured and workmanship. The duration of the working process is around 5 weeks after your payment is being confirmed.<br><br><br>
 

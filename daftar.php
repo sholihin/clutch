@@ -7,7 +7,7 @@
 	</tr>
 	<tr>
 		<td colspan="2">KATA SANDI <br />
-	    <input type="password" name="txtpass" required pattern="[a-zA-Z0-9]{6,}" title="Minimum 6 letters or numbers and no space"/></td>
+	    <input type="password" name="password" required pattern="[a-zA-Z0-9]{6,}" title="Minimum 6 letters or numbers and no space"/></td>
 	</tr>
 	<tr>
 		<td colspan="2">NAMA LENGKAP <br />
@@ -15,7 +15,7 @@
 	</tr>
 	<tr>
 		<td colspan="2">NOMOR TELEPON <br />
-	    <input type="text" name="phone" required/></td>
+	    <input type="text" name="phone" required  id="harusnomor1" /></td>
 	</tr>
 	<tr>
 		<td colspan="2">ALAMAT <br />
@@ -34,7 +34,7 @@
 
 	<tr>
 		<td colspan="2">KODE POS <br />
-	    <input type="text" name="poscode" required/></td>
+	    <input type="text" name="poscode" required id="harusnomor2" /></td>
 	</tr>
 
 	<tr>

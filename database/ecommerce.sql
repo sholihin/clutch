@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 08, 2016 at 02:39 
+-- Generation Time: Jun 12, 2016 at 03:51 
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `name_admin`, `address_admin`, `email_admin`, `phone_admin`, `username_admin`, `password_admin`) VALUES
-(7, 'ganang', 'Yogyakarta', 'ganang.julianto@gmail.com', '089678720078', 'Ganang', 'd033e22ae348aeb5660fc2140aec35850c4da997');
+(7, 'Administrator', 'depok', 'admin@admin.com', '089678720078', 'admin', '21232f297a57a5a743894a0e4a801fc3');
 
 -- --------------------------------------------------------
 
@@ -135,7 +135,13 @@ INSERT INTO `cart` (`id`, `id_user`, `id_produk`, `id_header_transaction`, `init
 (67, 11, 4, 41, 'sdf', 1, '2016-06-08 01:34:48', 'checkout'),
 (68, 11, 2, 42, 'adf', 1, '2016-06-08 01:41:47', 'checkout'),
 (69, 11, 4, 42, 'kjk', 1, '2016-06-08 01:41:47', 'checkout'),
-(70, 11, 4, 42, 'sdf', 1, '2016-06-08 01:41:47', 'checkout');
+(70, 11, 4, 42, 'sdf', 1, '2016-06-08 01:41:47', 'checkout'),
+(71, 11, 1, 43, 'asd', 1, '2016-06-08 10:12:26', 'checkout'),
+(72, 11, 2, 44, '', 1, '2016-06-08 10:45:31', 'checkout'),
+(73, 11, 4, 44, '', 1, '2016-06-08 10:45:31', 'checkout'),
+(74, 11, 2, 44, 'hgj', 1, '2016-06-08 10:45:31', 'checkout'),
+(75, 11, 2, 45, 'ase', 1, '2016-06-12 20:23:48', 'checkout'),
+(76, 11, 2, 45, 'w45', 1, '2016-06-12 20:23:48', 'checkout');
 
 -- --------------------------------------------------------
 
@@ -146,7 +152,6 @@ INSERT INTO `cart` (`id`, `id_user`, `id_produk`, `id_header_transaction`, `init
 CREATE TABLE `category` (
   `id_category` bigint(10) UNSIGNED NOT NULL,
   `name_category` varchar(30) CHARACTER SET utf8 NOT NULL,
-  `category` varchar(30) NOT NULL,
   `status_category` enum('public','draft') CHARACTER SET utf8 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -154,10 +159,10 @@ CREATE TABLE `category` (
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id_category`, `name_category`, `category`, `status_category`) VALUES
-(1, 'Tas Kulit', 'tas-kulit', 'public'),
-(2, 'Dompet Klasik', 'dompet-klasik', 'public'),
-(3, 'Dompet Modern', 'dompet-modern', 'public');
+INSERT INTO `category` (`id_category`, `name_category`, `status_category`) VALUES
+(1, 'Tas Kulit', 'public'),
+(2, 'Dompet Klasik', 'public'),
+(3, 'Dompet Modern', 'public');
 
 -- --------------------------------------------------------
 
@@ -192,7 +197,10 @@ INSERT INTO `header_transaksi` (`id`, `status`, `user_id`, `date`) VALUES
 (39, 'checkout', 11, '2016-06-07 18:10:48'),
 (40, 'checkout', 11, '2016-06-07 18:11:13'),
 (41, 'checkout', 11, '2016-06-07 18:34:48'),
-(42, 'checkout', 11, '2016-06-07 18:41:47');
+(42, 'checkout', 11, '2016-06-07 18:41:47'),
+(43, 'checkout', 11, '2016-06-08 03:12:26'),
+(44, 'checkout', 11, '2016-06-08 03:45:31'),
+(45, 'checkout', 11, '2016-06-12 13:23:48');
 
 -- --------------------------------------------------------
 
@@ -214,10 +222,43 @@ CREATE TABLE `invoice` (
 --
 
 INSERT INTO `invoice` (`id_invoice`, `status`, `total_tagihan`, `id_header_transaction`, `user_id`, `date`) VALUES
-('inv099', 'checkout', '410000', 39, 11, '2016-06-07 18:10:48'),
+('inv099', 'konfirmasi', '410000', 39, 11, '2016-06-07 18:10:48'),
 ('inv100', 'checkout', '410000', 40, 11, '2016-06-07 18:11:13'),
 ('inv101', 'checkout', '410000', 41, 11, '2016-06-07 18:34:48'),
-('inv102', 'checkout', '410000', 42, 11, '2016-06-07 18:41:47');
+('inv102', 'checkout', '410000', 42, 11, '2016-06-07 18:41:47'),
+('INV103', 'checkout', '200000', 43, 11, '2016-06-08 03:12:26'),
+('INV104', 'checkout', '520000', 44, 11, '2016-06-08 03:45:31'),
+('INV105', 'checkout', '420000', 45, 11, '2016-06-12 13:23:48');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `konfirmasi`
+--
+
+CREATE TABLE `konfirmasi` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `invoice` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `total_tagihan` decimal(19,0) NOT NULL,
+  `nama_bank` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `no_rekening` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `atas_nama` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `rekening_tujuan` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `jumlah_bayar` decimal(19,0) NOT NULL,
+  `bukti` text COLLATE utf8_unicode_ci NOT NULL,
+  `keterangan` text COLLATE utf8_unicode_ci NOT NULL,
+  `date` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `konfirmasi`
+--
+
+INSERT INTO `konfirmasi` (`id`, `invoice`, `total_tagihan`, `nama_bank`, `no_rekening`, `atas_nama`, `rekening_tujuan`, `jumlah_bayar`, `bukti`, `keterangan`, `date`) VALUES
+(1, 'INV01', '90000', 'BCA', '123123123123123', 'Qyana', 'BCA', '90000', 'gambar', 'segera kirim ya', '2016-06-12 10:00:00'),
+(2, 'INV02', '90000', 'BCA', '123123123123123', 'Qyana', 'BCA', '90000', 'gambar', 'segera kirim ya', '2016-06-12 10:00:00'),
+(3, 'INV03', '90000', 'BCA', '123123123123123', 'Qyana', 'BCA', '90000', 'gambar', 'segera kirim ya', '2016-06-12 10:00:00'),
+(4, 'INV03', '90000', 'BCA', '123123123123123', 'Qyana', 'BCA', '90000', 'gambar', 'segera kirim ya', '2016-06-12 10:00:00');
 
 -- --------------------------------------------------------
 
@@ -259,27 +300,26 @@ CREATE TABLE `product` (
   `id_product` bigint(10) UNSIGNED NOT NULL,
   `code_product` varchar(30) CHARACTER SET utf32 NOT NULL,
   `name_product` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `category_product` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `id_category` int(10) UNSIGNED NOT NULL,
   `description_product` text CHARACTER SET utf8 NOT NULL,
   `price_product` decimal(19,0) NOT NULL,
   `size_product` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `color_product` varchar(30) CHARACTER SET utf8 NOT NULL,
   `status_product` enum('public','draft') NOT NULL,
   `date_product` datetime NOT NULL,
   `stock_product` enum('ada','kosong') NOT NULL,
-  `picture_product` text CHARACTER SET utf8 NOT NULL,
-  `author_product` varchar(100) CHARACTER SET utf8 NOT NULL
+  `picture_product` text CHARACTER SET utf8 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id_product`, `code_product`, `name_product`, `category_product`, `description_product`, `price_product`, `size_product`, `color_product`, `status_product`, `date_product`, `stock_product`, `picture_product`, `author_product`) VALUES
-(1, 'bj01', 'Manhattan Man Leather Bag', 'tas-kulit', 'Ukobag berkomitmen untuk membuat tas dengan kualitas terbaik dan juga mendukung global worming, oleh sebab itu tas yang anda beli hanya di buat saat di pesan tidak menggunakan sistem stok barang. Lamanya proses kerja adalah sekitar 5 minggu setelah pembayaran Anda dikonfirmasi.', '200000', '29.5 cm x 21.5 cm x 7 cm', 'Merah', 'public', '2006-12-20 00:21:19', 'ada', 'manhattan_man_large.jpg', 'admin'),
-(2, 'bj02', 'Baju Hem Pria', 'tas-kulit', 'Ukobag berkomitmen untuk membuat tas dengan kualitas terbaik dan juga mendukung global worming, oleh sebab itu tas yang anda beli hanya di buat saat di pesan tidak menggunakan sistem stok barang. Lamanya proses kerja adalah sekitar 5 minggu setelah pembayaran Anda dikonfirmasi.', '210000', '29.5 cm x 21.5 cm x 7 cm', 'Biru', 'public', '2014-10-01 08:12:55', 'ada', 'manhattan_woman_small.jpg', 'admin'),
-(3, 'bj03', 'Baju Wanita', 'tas-kulit', 'Ukobag berkomitmen untuk membuat tas dengan kualitas terbaik dan juga mendukung global worming, oleh sebab itu tas yang anda beli hanya di buat saat di pesan tidak menggunakan sistem stok barang. Lamanya proses kerja adalah sekitar 5 minggu setelah pembayaran Anda dikonfirmasi.', '100000', '29.5 cm x 21.5 cm x 7 cm', 'hijau', 'public', '2014-10-01 08:16:28', 'ada', 'manleatherbag.jpg', 'ganang'),
-(4, 'bj04', 'Baju Wanita', 'tas-kulit', 'Ukobag berkomitmen untuk membuat tas dengan kualitas terbaik dan juga mendukung global worming, oleh sebab itu tas yang anda beli hanya di buat saat di pesan tidak menggunakan sistem stok barang. Lamanya proses kerja adalah sekitar 5 minggu setelah pembayaran Anda dikonfirmasi.', '100000', '29.5 cm x 21.5 cm x 7 cm', 'kuning', 'public', '2014-10-01 09:08:40', 'ada', 'womanleatherbag.jpg', 'admin');
+INSERT INTO `product` (`id_product`, `code_product`, `name_product`, `id_category`, `description_product`, `price_product`, `size_product`, `status_product`, `date_product`, `stock_product`, `picture_product`) VALUES
+(1, 'bj01', 'Manhattan Man Leather Bag', 1, 'Ukobag berkomitmen untuk membuat tas dengan kualitas terbaik dan juga mendukung global worming, oleh sebab itu tas yang anda beli hanya di buat saat di pesan tidak menggunakan sistem stok barang. Lamanya proses kerja adalah sekitar 5 minggu setelah pembayaran Anda dikonfirmasi.', '200000', '29.5 cm x 21.5 cm x 7 cm', 'public', '2006-12-20 00:21:19', 'ada', 'manhattan_man_large.jpg'),
+(2, 'bj02', 'Baju Baru', 0, 'Ukobag berkomitmen untuk membuat tas dengan kualitas terbaik dan juga mendukung global worming, oleh sebab itu tas yang anda beli hanya di buat saat di pesan tidak menggunakan sistem stok barang. Lamanya proses kerja adalah sekitar 5 minggu setelah pembayaran Anda dikonfirmasi.', '210000', '29.5 cm x 21.5 cm x 7 cm', 'public', '2014-10-01 08:12:55', 'ada', 'manhattan_woman_small.jpg'),
+(3, 'bj03', 'Baju Wanita', 2, 'Ukobag berkomitmen untuk membuat tas dengan kualitas terbaik dan juga mendukung global worming, oleh sebab itu tas yang anda beli hanya di buat saat di pesan tidak menggunakan sistem stok barang. Lamanya proses kerja adalah sekitar 5 minggu setelah pembayaran Anda dikonfirmasi.', '100000', '29.5 cm x 21.5 cm x 7 cm', 'public', '2014-10-01 08:16:28', 'ada', 'manleatherbag.jpg'),
+(4, 'bj04', 'Baju Wanita', 1, 'Ukobag berkomitmen untuk membuat tas dengan kualitas terbaik dan juga mendukung global worming, oleh sebab itu tas yang anda beli hanya di buat saat di pesan tidak menggunakan sistem stok barang. Lamanya proses kerja adalah sekitar 5 minggu setelah pembayaran Anda dikonfirmasi.', '100000', '29.5 cm x 21.5 cm x 7 cm', 'public', '2014-10-01 09:08:40', 'ada', 'womanleatherbag.jpg'),
+(5, 'bj001', 'nama', 0, 'des', '200', '12 x 12', 'public', '2016-06-13 00:00:00', 'ada', 'manhattan_woman_small.jpg');
 
 -- --------------------------------------------------------
 
@@ -306,7 +346,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `fullname`, `password`, `city`, `country`, `address`, `poscode`, `email`, `phone`, `date`, `status`) VALUES
-(11, 'Mohamad Sholihin', '6e3c3ea1f7298ce6ee471d868759998a', 'bogor1', 'indonesia1', 'jl. bambu kuning1', '169221', 'user@user.com', '085711', '2016-06-04 23:58:11', 'aktif');
+(11, 'Uko', 'ee11cbb19052e40b07aac0ca060c23ee', 'bogor1', 'indonesia1', 'jl. bambu kuning1', '169221', 'user@user.com', '085711', '2016-06-04 23:58:11', 'aktif');
 
 --
 -- Indexes for dumped tables
@@ -384,17 +424,17 @@ ALTER TABLE `bukutamu`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id_category` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_category` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `header_transaksi`
 --
 ALTER TABLE `header_transaksi`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT for table `post`
 --
@@ -404,12 +444,12 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id_product` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_product` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

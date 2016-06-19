@@ -29,7 +29,7 @@ $(document).ready(function(){
 			</tr>
 		</form>
 
-		<form action="php/reset_password" method="post" class="validate-form">
+		<!-- <form action="php/reset_password" method="post" class="validate-form">
 			<tr>
 				<td style="padding-top:180px;">LUPA KATA SANDI ? <br />
 			    <input type="text" name="resetemail" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" id="reset_email"/><br />
@@ -39,6 +39,6 @@ $(document).ready(function(){
 			    </div>
 			    </td>
 			</tr>
-		</form>
+		</form> -->
 	</table>
 </div>

@@ -21,7 +21,7 @@ $row = mysqli_fetch_array($query);
 	</tr>
 	<tr>
 		<td colspan="2">NOMOR TELEPON <br />
-	    <input type="text" name="phone" value="<?php echo $row['phone']; ?>" required/></td>
+	    <input type="text" name="phone" value="<?php echo $row['phone']; ?>" required id="harusnomor1"/></td>
 	</tr>
 	<tr>
 		<td colspan="2">ALAMAT <br />
@@ -40,7 +40,7 @@ $row = mysqli_fetch_array($query);
 
 	<tr>
 		<td colspan="2">KODE POS <br />
-	    <input type="text" name="poscode" value="<?php echo $row['poscode']; ?>" required/></td>
+	    <input type="text" name="poscode" value="<?php echo $row['poscode']; ?>" required id="harusnomor2"/></td>
 	</tr>
 
 	<tr>

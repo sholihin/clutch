@@ -3,13 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>ukobag</title>
+<title>CLUTCH</title>
 
 <!-- SEO meta -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta charset="utf-8" />
-<meta content='Ukobag' name='description'/>
-<meta content='Ukobag, www.ukobag.com, Ukobag, Bags' name='keywords'/> 
+<meta content='CLUTCH' name='description'/>
+<meta content='CLUTCH, www.CLUTCH.com, CLUTCH, Bags' name='keywords'/> 
 <meta http-equiv="content-language" content="en" />
 
 <link href="css/index.css" rel="stylesheet" type="text/css"/>
@@ -17,9 +17,34 @@
 
 <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <script src="js/jquery.min.js"></script>
-<script src="js/slippry.js"></script>
-<link rel="stylesheet" href="css/slippry.css" />
 <script src="js/jquery.cookie.js"></script>
+<!-- bxSlider CSS file -->
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
+<script src="slideshow/jquery.bxslider.min.js"></script>
+<link href="slideshow/jquery.bxslider.css	" rel="stylesheet" />
+
+<!-- slidenewprod -->
+<link rel="stylesheet" href="jquery-flickity/flickity.css" type="text/css" media="all"/>
+<script type="text/javascript" src="jquery-flickity/flickity.pkgd.js"></script>
+
+<!-- isnumeric -->
+<script type="text/javascript" src="isnumber/jquery.numeric.js"></script>
+
+<style>
+.transaksi td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.transaksi {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.transaksi th, .transaksi td {
+    padding: 15px;
+}
+</style>
 
 <script> 
 $(document).ready(function(){	
@@ -32,139 +57,170 @@ $('.menu').hide();
 </head>
 <body>
 
-
 <header>
-<nav>
-<div><a href="#" id="design">KATEGORI PRODUK</a>
-	<div class="menu" style="text-transform: uppercase;">
-	<?php
-		include "koneksi.php";
-		$query=mysqli_query($koneksi, "select * from category where status_category='public'");
-		
-		while($data=mysqli_fetch_array($query)){
-			echo '<a href="?page=produk&category='.$data[category].'">'.$data[name_category].'</a><br />';
-		}
-	?>
-    </div>
+<table>
+	<tr>
+		<td style="vertical-align:top;">
+			<nav>
+			<div><a href="#" id="design">KATEGORI PRODUK</a>
+				<div class="menu" style="text-transform: uppercase;">
+				<?php
+					include "koneksi.php";
+					$query=mysqli_query($koneksi, "select * from category where status_category='public'");
+					
+					while($data=mysqli_fetch_array($query)){
+						echo '<a href="?page=produk&category='.$data['id_category'].'">'.$data[name_category].'</a><br />';
+					}
+				?>
+			    </div>
+			</div>
+			<div><a href="index.php?page=tentang">TENTANG</a></div>
+			<div><a href="index.php?page=kontak">KONTAK</a></div>
+			<div><a href="index.php?page=bantuan">BANTUAN</a></div>
+
+			<br /><br />
+
+			<div>
+			<?php 
+				session_start();
+				if(!isset($_SESSION['login_member'])){
+					echo '<a href="?page=masuk">MASUK</a> / <a href="?page=daftar">DAFTAR</a>';
+				}
+				else {
+					echo '
+						<b style="font-size: 13px;">Selamat Datang, <br>'.$_SESSION['login_member']['fullname'].'</b>
+						<br>
+						<a href="index.php?page=akun-saya">PROFIL SAYA</a>
+						<br>
+						<a href="index.php?page=history">RIWAYAT BELANJA</a>
+						<br>
+						<a href="logout.php">KELUAR</a>
+					';
+				}
+			?>
+
+			</div>
+
+			<div>
+				<a href="index.php?page=cart">
+				<?php 
+					$j = 0;
+					for($i=0; $i < count($_SESSION['cart']); $i++){
+						$j += $_SESSION['cart'][$i]['qty'];
+					}
+					if($j > 0){
+						echo'KERANJANG BELANJA ('.$j.')';
+					}
+					else {
+						echo 'KERANJANG BELANJA (0)';
+					}
+
+				?>
+				</a>	
+			</div>
+			</nav>
+		</td>
+		<td style="vertical-align:top;">
+			<div class="head" id="design_head">
+			<a href="index.php"><img src="img/logo.png" class="logo"/></a><br />
+			<img src="img/header_shadow.png" class="shadow"/>
+			<div class="design" style="left:20px;">
+				<?php
+				switch ($_GET['page']) {
+				    case "produk":
+				        include "konten-produk.php";
+				        break;
+				    case "tentang":
+				        include "about.php";
+				        break;
+				    case "bantuan":
+				        include "help.php";
+				        break;
+				    case "masuk":
+				        include "masuk.php";
+				        break;
+				    case "akun-saya":
+				        include "akun-saya.php";
+				        break;
+				    case "daftar":
+				        include "daftar.php";
+				        break;
+				    case "keranjang":
+				        include "keranjang.php";
+				        break;
+				    case "order":
+				        include "order.php";
+				        break;
+				    case "cart":
+				        include "addcart.php";
+				        break;
+				    case "konfirmasi":
+				        include "konfirmasi.php";
+				        break;
+				    case "kontak":
+				        include "contact.php";
+				        break;
+			        case "transfer":
+				        include "transfer.php";
+				        break;
+					case "history":
+				        include "history.php";
+				        break;
+			        case "detail-transaksi":
+				        include "detail-history.php";
+				        break;
+			        case "review":
+				        include "review.php";
+				        break;
+			        default:
+			        	include "semua-produk.php";
+				}
+				?>
+			</div>
+		</td>
+		<td style="vertical-align:top;text-align:left">
+			<div style="margin-top:73px">
+				<h6 style="text-transform:uppercase;">Bank Yang Didukung: </h6><br>
+				<img src="img/mandiri.png" style="width:100px;margin-top:-10px;">
+				<img src="img/bca.jpg" style="width:100px;margin-top:20px">
+				<hr style="border:0px;border-bottom:1px solid #eee;margin:20px 0px;">
+				<h6 style="text-transform:uppercase;">Pengiriman Paket: </h6><br>
+				<img src="img/jne.png" style="width:100px;height:70px;margin-top:-20px;">
+				<img src="img/tiki.png" style="width:100px;height:50px;margin-top:20px">
+				<img src="img/pos.png" style="width:100px;height:50px;margin-top:20px">
+			</div>
+		</td>
+	</tr>
+</table>
+
+
 </div>
-<div><a href="index.php?page=tentang">TENTANG</a></div>
-<div><a href="index.php?page=kontak">KONTAK</a></div>
-<div><a href="index.php?page=bantuan">BANTUAN</a></div>
-
-<br /><br />
-
-<div>
-<?php 
-	session_start();
-	if(!isset($_SESSION['login_member'])){
-		echo '<a href="?page=masuk">MASUK</a> / <a href="?page=daftar">DAFTAR</a>';
-	}
-	else {
-		echo '
-			<b>Selamat Datang, <br>'.$_SESSION['login_member']['fullname'].'</b>
-			<br>
-			<a href="?page=akun-saya">AKUN SAYA</a>
-			<br>
-			<a href="logout.php">KELUAR</a>
-		';
-	}
-?>
-
-</div>
-
-<div>
-	<a href="index.php?page=cart">
-	<?php 
-		$j = 0;
-		for($i=0; $i < count($_SESSION['cart']); $i++){
-			$j += $_SESSION['cart'][$i]['qty'];
-		}
-		if($j > 0){
-			echo'KERANJANG BELANJA ('.$j.')';
-		}
-		else {
-			echo 'KERANJANG BELANJA (0)';
-		}
-
-	?>
-	</a>	
-</div>
-</nav>
-
-<div class="head" id="design_head">
-<a href="#"><img src="img/logo.png" class="logo"/></a><br />
-<img src="img/header_shadow.png" class="shadow"/>
-
-
-<div class="design" style="left:20px;">
-<?php
-	switch ($_GET['page']) {
-	    case "produk":
-	        include "konten-produk.php";
-	        break;
-	    case "tentang":
-	        include "about.php";
-	        break;
-	    case "bantuan":
-	        include "help.php";
-	        break;
-	    case "masuk":
-	        include "masuk.php";
-	        break;
-	    case "akun-saya":
-	        include "akun-saya.php";
-	        break;
-	    case "daftar":
-	        include "daftar.php";
-	        break;
-	    case "keranjang":
-	        include "keranjang.php";
-	        break;
-	    case "order":
-	        include "order.php";
-	        break;
-	    case "cart":
-	        include "addcart.php";
-	        break;
-	    case "konfirmasi":
-	        include "konfirmasi.php";
-	        break;
-	    case "kontak":
-	        include "contact.php";
-	        break;
-        default:
-        	include "semua-produk.php";
-	}
-?>
-</div>
-
-</div>
-
-
-
 </header>
-
-
-
-<footer>
+<footer style="margin-top:100px;">
 <div class="share">
 	SHARE <br />
-    <a href="http://www.facebook.com/sharer/sharer.php?u=http://www.ukobag.com" target="_blank">
+    <a href="http://www.facebook.com/sharer/sharer.php?u=http://www.CLUTCH.com" target="_blank">
     <img src="img/share_fb.png" /></a>
     
-    <a href="http://twitter.com/share?url=http://www.ukobag.com" target="_blank">
+    <a href="http://twitter.com/share?url=http://www.CLUTCH.com" target="_blank">
     <img src="img/share_twitter.png" /></a>
     
-    <a href="http://pinterest.com/pin/create/button/?url=http://www.ukobag.com" target="_blank">
+    <a href="http://pinterest.com/pin/create/button/?url=http://www.CLUTCH.com" target="_blank">
     <img src="img/share_pinterest.png" /></a>
 </div>
-<div class="copyright" style="text-align:justify;">
-Semua konten dari website kami (termasuk teks, grafis, logo, ikon tombol, gambar, dan software) adalah milik UKOBAG dan dilindungi oleh undang-undang hak cipta internasional. Merek dagang, logo, merek layanan, dan nama dagang dari UKOBAG dan tidak boleh digunakan tanpa izin tertulis dari kami.
+<div class="copyright" style="text-align:justify;font-size:12px;">
+Semua konten dari website kami (termasuk teks, grafis, logo, ikon tombol, gambar, dan software) adalah milik CLUTCH dan dilindungi oleh undang-undang hak cipta internasional. Merek dagang, logo, merek layanan, dan nama dagang dari CLUTCH dan tidak boleh digunakan tanpa izin tertulis dari kami.
 <br /><br />
-Copyright &copy; UkoBag 2016. Seluruh hak cipta. Dikembangkan oleh <a href="http://www.ukobag.com" target="_blank">Uko Bona Ibin</a>
+Copyright &copy; CLUTCH 2016. Seluruh hak cipta. Dikembangkan oleh <a href="http://www.CLUTCH.com" target="_blank">Uko Bona Ibin</a>
 </div>
 </footer>
+<script type="text/javascript">
+	$(document).ready(function(){
+	  $('.bxslider').bxSlider();
+	});
 
-
+	$("#harusnomor1").numeric();
+	$("#harusnomor2").numeric();
+</script>
 </body>
 </html>
