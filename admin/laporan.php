@@ -3,9 +3,9 @@
     <h2>Laporan Invoice</h2>
     <form action="index.php?module=laporan" method="post">
       <label>Dari Tanggal</label>
-      <input type="date" name="from" id="from">
+      <input type="text" name="from" id="from">
       <label>Sampai Tanggal</label>
-      <input type="date" name="to" id="to">
+      <input type="text" name="to" id="to">
       <button type="submit"><i class="fa fa-search"></i> Cari</button>
       <button type="button" onclick="cetak()"><i class="fa fa-print"></i> Cetak</button>
     </form>
@@ -59,4 +59,5 @@
     var to = $('#to').val();
     window.open('cetak.php?from='+from+'&to='+to);
   }
+  $( "input[type=text]").datepicker({dateFormat: 'yy-mm-dd'});
 </script>

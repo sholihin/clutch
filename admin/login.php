@@ -4,9 +4,16 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 <script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
+<!-- <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script> -->
+<!-- <script type="text/javascript" src="js/custom.js"></script> -->
 
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+<script type="text/javascript">
+    $(document).ready(function(){
+      $("input[type=text]").val('');
+      $("input[type=password]").val('');
+    });
+</script>
 </head>
 <body>
 <header id="top">

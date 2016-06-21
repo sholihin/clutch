@@ -34,7 +34,7 @@
 
 	<tr>
 		<td colspan="2">KODE POS <br />
-	    <input type="text" name="poscode" required id="harusnomor2" /></td>
+	    <input type="text" name="poscode" value="123" required id="harusnomor2" /></td>
 	</tr>
 
 	<tr>
@@ -43,3 +43,8 @@
 	</table>
 </form>
 </div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('input[type=text]').val('');
+	});
+</script>

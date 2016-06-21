@@ -216,7 +216,9 @@ Copyright &copy; CLUTCH 2016. Seluruh hak cipta. Dikembangkan oleh <a href="http
 </footer>
 <script type="text/javascript">
 	$(document).ready(function(){
-	  $('.bxslider').bxSlider();
+	  $('.bxslider').bxSlider({
+  		auto: true
+  		});
 	});
 
 	$("#harusnomor1").numeric();

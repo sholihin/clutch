@@ -66,11 +66,11 @@ $row = mysqli_fetch_array($query);
 	        <input type="number" max="999" min="1" value="<?php echo $row['stock_product']; ?>" readonly name="stock" id="stock" style="width:53px;padding: 5px 10px" id="stock">
 	        </td>
 	        <td valign="top">
-	        <?php if($row['stock_product'] > 0){ ?>
-			<input type="button" onclick="ceksebelumorder()" class="active" value="BELI" style="margin-top:0px;height:25px;width: 112px;">
-			<? }else{ ?>
-			<input type="submit" disabled class="btn-warning" value="Stok Kosong" style="margin-top:0px;height:25px;background-color:#eee;color:black;width: 112px;">
-			<?php } ?>
+	        <?php if($row['stock_product'] > 0){
+			echo '<input type="button" onclick="ceksebelumorder()" class="active" value="BELI" style="margin-top:0px;margin-bottom:3px;height:31px;width: 112px;">';
+			}else{ echo '<input type="submit" disabled class="btn-warning" value="Stok Kosong" style="margin-top:0px;height:25px;background-color:#eee;color:black;width: 112px;">';
+			   } 
+			?>
 	        </td>
 	    </tr>
 	    <tr>

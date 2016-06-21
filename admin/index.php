@@ -4,6 +4,9 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 <script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+<link rel="stylesheet" href="datepicker/jquery-ui.css">
+<script src="datepicker/jquery-1.10.2.js"></script>
+<script src="datepicker/jquery-ui.js"></script>
 <!-- <script type="text/javascript" src="js/custom.js"></script> -->
 </head>
 <body>
