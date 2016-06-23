@@ -1,6 +1,9 @@
 <?php 
 include "koneksi.php";
 session_start();
+if(!isset($_SESSION['login_member'])){
+	echo "<script>alert('Silahkan login terlebih dulu..');window.location.href='index.php?page=masuk';</script>";
+}else {
 $query = mysqli_query($koneksi, "SELECT * FROM `user` where id='".$_SESSION['login_member']['id']."'");
 $row = mysqli_fetch_array($query);
 ?>
@@ -52,3 +55,6 @@ $row = mysqli_fetch_array($query);
 	</table>
 </form>
 </div>
+<?php
+}
+?>
