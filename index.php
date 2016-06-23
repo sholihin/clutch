@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -197,7 +196,7 @@ $('.menu').hide();
 
 </div>
 </header>
-<footer style="margin-top:100px;">
+<footer style="margin-top:200px;">
 <div class="share">
 	SHARE <br />
     <a href="http://www.facebook.com/sharer/sharer.php?u=http://www.CLUTCH.com" target="_blank">
