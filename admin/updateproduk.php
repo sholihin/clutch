@@ -8,6 +8,7 @@ $id_category = $_POST['id_category'];
 $description_product = $_POST['description_product'];
 $price_product = $_POST['price_product'];
 $size_product = $_POST['size_product'];
+$berat = $_POST['berat'];
 $status_product = $_POST['status_product'];
 $stock_product = $_POST['stock_product'];
 
@@ -20,13 +21,13 @@ if(!empty($file_name)){
 	$sql = "
 	UPDATE `product` SET 
 	`code_product` = '".$code_product."', `name_product` = '".$name_product."', `id_category` = '".$id_category."', 
-	`description_product` = '".$description_product."', `price_product` = '".$price_product."', `size_product` = '".$size_product."', `status_product` = '".$status_product."', `stock_product` = '".$stock_product."', 
+	`description_product` = '".$description_product."', `price_product` = '".$price_product."', `size_product` = '".$size_product."', `berat` = '".$berat."', `status_product` = '".$status_product."', `stock_product` = '".$stock_product."', 
  	`picture_product` = '".$file_name."' WHERE `id_product` = '".$id."'";
  }else{
  	$sql = "
 	UPDATE `product` SET 
 	`code_product` = '".$code_product."', `name_product` = '".$name_product."', `id_category` = '".$id_category."', 
-	`description_product` = '".$description_product."', `price_product` = '".$price_product."', `size_product` = '".$size_product."', `status_product` = '".$status_product."', `stock_product` = '".$stock_product."'
+	`description_product` = '".$description_product."', `price_product` = '".$price_product."', `size_product` = '".$size_product."', `berat` = '".$berat."', `status_product` = '".$status_product."', `stock_product` = '".$stock_product."'
  	WHERE `id_product` = '".$id."'";
  }
 

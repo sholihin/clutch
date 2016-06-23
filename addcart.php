@@ -46,7 +46,7 @@ else{
 if(count($_SESSION['cart']) > 0 ){
 ?>
 <tr>
-	<td style="border:none"><a href="checkout.php"><input type="button" value="PROSES" /></a> <br /><br /><br /><br /></td>
+	<td style="border:none"><a href="index.php?page=konfirmasi-alamat"><input type="button" value="PROSES" /></a> <br /><br /><br /><br /></td>
 </tr>
 <?php } ?>
 </table>

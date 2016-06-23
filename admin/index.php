@@ -62,6 +62,9 @@
         case "editproduk":
             include "editproduk.php";
         break;
+        case "editshipping":
+            include "editshipping.php";
+        break;
         case "editcategory":
             include "editcategory.php";
         break;
@@ -70,6 +73,9 @@
         break;
         case "review":
             include "review.php";
+        break;
+        case "shipping":
+            include "shipping.php";
         break;
           default:
             include "dashboard.php";
@@ -88,6 +94,7 @@
 					<li class="garisbawah"><a href="?module=member">Member</a></li>
 					<li class="garisbawah"><a href="?module=pemesanan">Pemesanan Barang</a></li>
                     <li class="garisbawah"><a href="?module=konfirmasi">Konfirmasi</a></li>
+                    <li class="garisbawah"><a href="?module=shipping">Biaya Pengiriman Barang</a></li>
 					<li class="garisbawah"><a href="?module=review">Review Produk</a></li>
 					<li class="garisbawah"><a href="?module=laporan">Laporan</a></li>
 				</ul>

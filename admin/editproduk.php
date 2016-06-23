@@ -36,6 +36,8 @@ $row = mysqli_fetch_array($query);
           <dd> : <input type="text" name="price_product" value="<?php echo $row['price_product']; ?>" size="30"></dd>
           <dt><label>Size Product</label></dt>
           <dd> : <input type="text" name="size_product" value="<?php echo $row['size_product']; ?>" size="30"></dd>
+          <dt><label>Berat</label></dt>
+          <dd> : <input type="text" name="berat" value="<?php echo $row['berat']; ?>" size="30"></dd>
           <dt><label>Status</label></dt>
           <dd> : 
                <label><input type="radio" name="status_product" value="public" <?php if($row['status_product']=="public") echo "checked"; ?>>

@@ -28,6 +28,8 @@
           <dd> : <input type="text" name="price_product" value="" size="30"></dd>
           <dt><label>Size Product</label></dt>
           <dd> : <input type="text" name="size_product" value="" size="30"></dd>
+          <dt><label>Berat</label></dt>
+          <dd> : <input type="text" name="berat" value="" size="30"></dd>
           <dt><label>Status</label></dt>
           <dd> : 
                <label><input type="radio" name="status_product" value="public">

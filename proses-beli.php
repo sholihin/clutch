@@ -5,6 +5,7 @@ $id_produk = $_POST['id_produk'];
 $name_product = $_POST['name_product'];
 $price_product = $_POST['price_product'];
 $initial_name = $_POST['initial_name'];
+$berat = $_POST['berat'];
 $qty = $_POST['qty'];
 date_default_timezone_set('Asia/Jakarta');
 $date = date('Y-m-d H:i:s'); 
@@ -18,7 +19,8 @@ $array = array(
 			'qty' => $qty,
 			'total' => ($qty * $price_product),
 			'date' => $date,
-			'status' => $status_pemesan
+			'status' => $status_pemesan,
+			'berat' => $berat
 		);
 
 if(count($_SESSION['cart']) > 0){
@@ -27,7 +29,6 @@ if(count($_SESSION['cart']) > 0){
 else {
 	$_SESSION['cart'] = [$array];
 }
-
 header('location:index.php?page=cart');
 
 ?>

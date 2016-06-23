@@ -63,7 +63,8 @@ $row = mysqli_fetch_array($query);
 	        	Sampai dengan 3 huruf</td>
 	        <td valign="top"><input type="number" max="999" min="1" value="1" name="qty" id="qty"></td>
 	        <td valign="top">
-	        <input type="number" max="999" min="1" value="<?php echo $row['stock_product']; ?>" readonly name="stock" id="stock" style="width:53px;padding: 5px 10px" id="stock">
+	        <input type="number" max="999" min="1" value="<?php echo $row['stock_product']; ?>" readonly name="stock" style="width:53px;padding: 5px 10px" id="stock">
+	        <input type="hidden" max="999" min="1" value="<?php echo $row['berat']; ?>" readonly name="berat" style="width:53px;padding: 5px 10px">
 	        </td>
 	        <td valign="top">
 	        <?php if($row['stock_product'] > 0){

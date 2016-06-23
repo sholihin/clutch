@@ -172,6 +172,9 @@ $('.menu').hide();
 			        case "review":
 				        include "review.php";
 				        break;
+			        case "konfirmasi-alamat":
+				        include "konfirmasi-alamat.php";
+				        break;
 			        default:
 			        	include "semua-produk.php";
 				}
@@ -186,8 +189,6 @@ $('.menu').hide();
 				<hr style="border:0px;border-bottom:1px solid #eee;margin:20px 0px;">
 				<h6 style="text-transform:uppercase;">Pengiriman Paket: </h6><br>
 				<img src="img/jne.png" style="width:100px;height:70px;margin-top:-20px;">
-				<img src="img/tiki.png" style="width:100px;height:50px;margin-top:20px">
-				<img src="img/pos.png" style="width:100px;height:50px;margin-top:20px">
 			</div>
 		</td>
 	</tr>
