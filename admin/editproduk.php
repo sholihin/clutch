@@ -13,7 +13,7 @@ $row = mysqli_fetch_array($query);
           <legend>Edit Produk</legend>
           <dl class="inline">
           <dt><label>Kode Produk</label></dt>
-          <dd> : <input type="text" name="code_product" value="<?php echo $row['code_product']; ?>" size="30"></dd>
+          <dd> : <input type="text" name="code_product" value="<?php echo $row['code_product']; ?>" size="30" readonly></dd>
           <dt><label>Name Product</label></dt>
           <dd> : <input type="text" name="name_product" value="<?php echo $row['name_product']; ?>" size="30"></dd>
           <dt><label>Kategori Product</label></dt>

@@ -1,3 +1,18 @@
+<?php
+include "../koneksi.php";
+$query = mysqli_query($koneksi, "SELECT max(code_product) from product");
+$data = mysqli_fetch_array($query);
+
+if ($data){ 
+   $nilaikode = substr($data[0], 4);
+   $kode = (int) $nilaikode;
+   $kode = $kode + 1;
+   $hasilkode = "CLTH".str_pad($kode, 2, "0", STR_PAD_LEFT);
+}else{
+   $hasilkode = "CLTH"."01";
+}
+?>
+
 <section id="main" class="grid_9 push_3">
   <article id="formadd" style="padding:5px;display:none">
       <form method="POST" action="addproduk.php" enctype="multipart/form-data">
@@ -5,7 +20,7 @@
           <legend>Tambah Produk</legend>
           <dl class="inline">
           <dt><label>Kode Produk</label></dt>
-          <dd> : <input type="text" name="code_product" value="" size="30"></dd>
+          <dd> : <input type="text" name="code_product" value="<?php echo $hasilkode; ?>" size="30" readonly></dd>
           <dt><label>Name Product</label></dt>
           <dd> : <input type="text" name="name_product" value="" size="30"></dd>
           <dt><label>Kategori Product</label></dt>
@@ -13,7 +28,6 @@
             <select name="id_category">
               <option value="">*Pilih Kategori</option>
                   <?php 
-                  include "../koneksi.php";
                   $q1 = mysqli_query($koneksi, "SELECT * FROM `category`");
                   while($r1 = mysqli_fetch_array($q1)){
                   ?>
