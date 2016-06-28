@@ -25,7 +25,7 @@ $sql .= "
 `poscode` = '".$poscode."', 
 `email` = '".$email."', 
 `phone` = '".$phone."', 
-`status` = '".$status."' WHERE `id` = '".$id."'";
+`status` = '".$status."' WHERE `id_user` = '".$id."'";
 
 $query = mysqli_query($koneksi, $sql);
 if($query){

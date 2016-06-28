@@ -31,15 +31,15 @@
       <tbody class="ui-sortable">
         <?php
           include "../koneksi.php";
-          $query = mysqli_query($koneksi, "SELECT * FROM `shipping` ORDER BY `id` DESC");
+          $query = mysqli_query($koneksi, "SELECT * FROM `shipping` ORDER BY `id_shipping` DESC");
           while($data = mysqli_fetch_array($query)){
         ?>
         <tr>
           <td><?php echo $data['lokasi']; ?></td>
           <td><?php echo $data['tarif']; ?></td>
           <td>
-             <a href="?module=editshipping&id=<?php echo $data['id']; ?>" title="Edit"><img src="images/icons/edit.png" alt="Edit"></a> |
-             <a href="deleteshipping.php?id=<?php echo $data['id']; ?>" title="Hapus"><img src="images/icons/cross.png" alt="Delete"></a>
+             <a href="?module=editshipping&id=<?php echo $data['id_shipping']; ?>" title="Edit"><img src="images/icons/edit.png" alt="Edit"></a> |
+             <a href="deleteshipping.php?id=<?php echo $data['id_shipping']; ?>" title="Hapus"><img src="images/icons/cross.png" alt="Delete"></a>
           </td>
         </tr>
         <?php } ?>

@@ -108,7 +108,7 @@
       <tbody class="ui-sortable">
         <?php
           include "../koneksi.php";
-          $query = mysqli_query($koneksi, "SELECT * FROM `konfirmasi` ORDER BY `id` DESC");
+          $query = mysqli_query($koneksi, "SELECT * FROM `konfirmasi` ORDER BY `id_konfirmasi` DESC");
           foreach($query as $data){
           $total += ($data['qty'] * $data['price_product']);
         ?>

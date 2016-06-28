@@ -223,6 +223,8 @@ Copyright &copy; CLUTCH 2016. Seluruh hak cipta. Dikembangkan oleh <a href="http
 
 	$("#harusnomor1").numeric();
 	$("#harusnomor2").numeric();
+	$("#no_rekening").numeric();
+	$("#jumlah_bayar").numeric();
 </script>
 </body>
 </html>

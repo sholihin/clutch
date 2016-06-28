@@ -37,9 +37,9 @@
           <td><?php echo $data['phone']; ?></td>
           <td><?php echo $data['status']; ?></td>
           <td>
-             <a href="?module=editmember&id=<?php echo $data['id']; ?>" title="Edit">
+             <a href="?module=editmember&id=<?php echo $data['id_user']; ?>" title="Edit">
                 <img src="images/icons/edit.png" alt="Edit"></a>
-             <a href="deletemember.php?id=<?php echo $data['id']; ?>" title="Hapus">
+             <a href="deletemember.php?id=<?php echo $data['id_user']; ?>" title="Hapus">
                 <img src="images/icons/cross.png" alt="Delete">
              </a>
           </td>

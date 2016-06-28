@@ -1,7 +1,7 @@
 <?php 
 include "koneksi.php";
 session_start();
-$query = mysqli_query($koneksi, "SELECT * FROM `user` where id='".$_SESSION['login_member']['id']."'");
+$query = mysqli_query($koneksi, "SELECT * FROM `user` where id_user='".$_SESSION['login_member']['id_user']."'");
 $row = mysqli_fetch_array($query);
 ?>
 <div class="login">

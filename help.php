@@ -1,17 +1,18 @@
 <div class="about">
 <p style="font-size:13px">
-<b>PRODUCT INFORMATION</b><br><br>
-There might be a slight difference in the tone of colors depending on the resolution of your monitor. Do note that there may be a slight difference measurements depending on how the item is measured and workmanship. The duration of the working process is around 5 weeks after your payment is being confirmed.<br><br><br>
+<b>INFORMASI PRODUK</b><br><br>
+Mungkin ada sedikit perbedaan dalam nada warna tergantung pada resolusi monitor Anda . Perhatikan bahwa mungkin ada sedikit perbedaan pengukuran tergantung pada bagaimana item diukur dan pengerjaan . Lamanya proses kerja sekitar 2 minggu setelah pembayaran Anda dikonfirmasi .<br><br><br>
 
-<b>RETURN AND EXCHANGE POLICY</b><br><br>
-Rounn would like to satisfy the needs of customer. Therefore, we stated here in the website and receipt that all the purchased item is final and non-refundable / returndable. But, we encourage you to contact us if you have any concerns or questions regarding the goods. <br><br><br>
+<b>RETUR DAN PERTUKARAN</b><br><br>
+Clutch ingin memenuhi kebutuhan pelanggan . Oleh karena itu , kami menyatakan di sini di situs web dan penerimaan bahwa semua barang yang dibeli adalah final dan tidak dapat dikembalikan / returndable . Tapi , kami mendorong Anda untuk menghubungi kami jika Anda memiliki masalah atau pertanyaan mengenai barang . <br><br><br>
 
-<b>PRIVACY POLICY</b><br><br>
-Generally , the personal information we collected from the customer is to help us achieve our goal of providing the highest quality products and services. We only use the information to interact with our customers as well from other parties.  <br>Rounn committed to handling all your personal information. All the credit card transactions are secure through encryption technology. Our database is restricted to number of people who have the authority. Please note that all your personal information is safe with us . <br><br><br>
+<b>PRIBADI</b><br><br>
+Secara umum, informasi pribadi yang kami kumpulkan dari pelanggan adalah untuk membantu kami mencapai tujuan kami untuk memberikan produk dan layanan berkualitas tinggi . Kami hanya menggunakan informasi tersebut untuk berinteraksi dengan pelanggan kami serta dari pihak lain .
+Clutch berkomitmen untuk menangani semua informasi pribadi Anda . Semua transaksi pembayaran yang aman melalui teknologi enkripsi . database kami dibatasi untuk jumlah orang yang memiliki otoritas . Harap dicatat bahwa semua informasi pribadi Anda aman bersama kami . <br><br><br>
 
-<b>SHIPPING POLICY</b><br><br>
-Our delivery time starts from the date we receive your payment , NOT the date of your order. Please note that this can take longer during holidays periods. We will try our best to minimize the potential of any custom delays for our international customers. Rounn also not responsible for any damage or loss items from the shipping company. <br>We will always provide the shipping code information , hence you can always track your package with the shipping company. 
-Please do check all your details before you make the purchased. Because, all the misspelling or lacking information is not our responsibility. 
+<b>PENGIRIMAN</b><br><br>
+waktu pengiriman kami mulai dari tanggal pembayaran kami terima , TIDAK tanggal pesanan Anda . Harap dicatat bahwa ini dapat memakan waktu lebih lama selama periode liburan . Kami akan mencoba sebaik mungkin untuk meminimalkan potensi keterlambatan kustom untuk pelanggan internasional kami . Clutch juga tidak bertanggung jawab atas kerusakan atau kerugian barang dari perusahaan pelayaran .
+Kami akan selalu memberikan informasi kode pengiriman , maka Anda dapat selalu melacak paket Anda dengan perusahaan pelayaran . Silakan lakukan periksa semua rincian Anda sebelum Anda membuat dibeli . Karena , semua kesalahan ejaan atau informasi kurang adalah bukan tanggung jawab kami . 
 <br><br>
 </p>
 </div>

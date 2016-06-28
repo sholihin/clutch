@@ -15,7 +15,7 @@ SELECT
     cart.id_header_transaction
 FROM `cart`
 INNER JOIN user 
-    ON cart.id_user = user.id
+    ON cart.id_user = user.id_user
 LEFT OUTER JOIN product
     ON cart.id_produk = product.id_product
 WHERE cart.id_header_transaction = '".$_GET['id']."'";
@@ -29,7 +29,7 @@ $row = mysqli_fetch_array($query);
     <table id="table1" class="gtable sortable">
       <thead>
         <?php
-          while($row = mysqli_fetch_array($query)){
+          foreach($query as $row){
         ?>
         <tr>
           <td style="text-align:left;width:100px">Nama </td>

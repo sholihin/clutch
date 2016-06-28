@@ -11,7 +11,7 @@ $sql = "
 		  invoice.date
 		FROM `invoice`
 		LEFT JOIN user 
-		  ON invoice.user_id = user.id
+		  ON invoice.user_id = user.id_user
 		WHERE 
 		invoice.date BETWEEN '".$_GET['from']." 00:00:00' AND '".$_GET['to']." 23:59:00' AND
 		invoice.status = 'selesai'
@@ -54,6 +54,7 @@ $pdf->Cell(40,8,'Status',1);
 //new line
 $pdf->Ln();
 
+$total= 0;
 //Data
 while($rw = mysqli_fetch_array($rs)){
 	$pdf->SetFont('Arial','',12);
@@ -63,7 +64,12 @@ while($rw = mysqli_fetch_array($rs)){
 	$pdf->Cell(50,8,''.$rw['date'].'',1);
 	$pdf->Cell(40,8,''.$rw['status'].'',1);
 	$pdf->Ln();
+	$total += $rw['total_tagihan'];
 }
+
+$pdf->SetFont('Arial','B',12);
+$pdf->Cell(20,8,'',0);
+$pdf->Cell(170,8,'Total : Rp. '.$total.'',1,1,'R');
 
 $pdf->SetFontSize(14);
 $pdf->Output();

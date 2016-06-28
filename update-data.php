@@ -23,7 +23,7 @@ $sql = "UPDATE `user` SET
 		`address` = '$address', 
 		`poscode` = '$poscode', 
 		`email` = '$email', 
-		`phone` = '$phone' WHERE id = '".$_SESSION['login_member']['id']."'";
+		`phone` = '$phone' WHERE id_user = '".$_SESSION['login_member']['id_user']."'";
 }		
 else{
 $sql = "UPDATE `user` SET 
@@ -34,7 +34,7 @@ $sql = "UPDATE `user` SET
 		`address` = '$address', 
 		`poscode` = '$poscode', 
 		`email` = '$email', 
-		`phone` = '$phone' WHERE id = '".$_SESSION['login_member']['id']."'";
+		`phone` = '$phone' WHERE id_user = '".$_SESSION['login_member']['id_user']."'";
 }
 $query = mysqli_query($koneksi, $sql);
 if($query){

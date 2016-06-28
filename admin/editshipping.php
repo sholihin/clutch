@@ -1,14 +1,14 @@
 <?php
 include "../koneksi.php";
 
-$query = mysqli_query($koneksi, "SELECT * from `shipping` where id='".$_GET['id']."'");
+$query = mysqli_query($koneksi, "SELECT * from `shipping` where id_shipping='".$_GET['id']."'");
 $row = mysqli_fetch_array($query);
 ?>
 
 <section id="main" class="grid_9 push_3">
 <article id="dashboard" style="padding:5px;">
 <form method="POST" action="updateshipping.php" enctype="multipart/form-data">
-          <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+          <input type="hidden" name="id" value="<?php echo $row['id_shipping']; ?>">
           <fieldset>
           <legend>Edit Biaya Kirim</legend>
           <dl class="inline">

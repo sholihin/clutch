@@ -3,7 +3,7 @@ include "../koneksi.php";
 
 $id = $_GET['id'];
 
-$sql = "DELETE FROM `user` WHERE `id` = '".$id."'";
+$sql = "DELETE FROM `user` WHERE `id_user` = '".$id."'";
 
 $query = mysqli_query($koneksi, $sql);
 if($query){

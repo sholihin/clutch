@@ -32,7 +32,7 @@
             invoice.date
           FROM `invoice`
           LEFT JOIN user 
-            ON invoice.user_id = user.id
+            ON invoice.user_id = user.id_user
           WHERE 
           invoice.date BETWEEN '".$_POST['from']." 00:00:00' AND '".$_POST['to']." 23:59:00' AND
           invoice.status = 'selesai'

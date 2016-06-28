@@ -21,7 +21,7 @@
                   review.komentar
               FROM review
               INNER JOIN user
-                ON review.user_id = user.id
+                ON review.user_id = user.id_user
               LEFT OUTER JOIN product
                 ON review.product_id = product.id_product
           ";

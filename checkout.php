@@ -8,7 +8,7 @@ $date = date('Y-m-d H:i:s');
 if(isset($_SESSION['login_member'])){
 	$koneksi->query("INSERT INTO `header_transaksi` VALUES (NULL, 
 							'checkout', 
-							'".$_SESSION['login_member']['id']."', 
+							'".$_SESSION['login_member']['id_user']."', 
 							'".$date."')");
 	$idheader = null;
 	$idheader = $koneksi->insert_id;
@@ -16,7 +16,7 @@ if(isset($_SESSION['login_member'])){
 
 	for($x=0; $x < count($_SESSION['cart']); $x++) {
 		mysqli_query($koneksi, "INSERT INTO `cart` VALUES (NULL, 
-		'".$_SESSION['login_member']['id']."', 
+		'".$_SESSION['login_member']['id_user']."', 
 		'".$_SESSION['cart'][$x]['id_produk']."', 
 		'".$idheader."', 
 		'".$_SESSION['cart'][$x]['initial_name']."', 
@@ -37,10 +37,8 @@ if(isset($_SESSION['login_member'])){
 	   $kode = (int) $nilaikode;
 	   $kode = $kode + 1;
 	   $hasilkode = "INV".date('Y').date('m').date('d').str_pad($kode, 2, "0", STR_PAD_LEFT);
-	   // echo "hasil1".$hasilkode;
 	}else{
 	   $hasilkode = "INV".date('Y').date('m').date('d')."01";
-	   // echo "hasil2".$hasilkode;
 	}
 
 	$biaya_kirim = 0;
@@ -63,7 +61,7 @@ if(isset($_SESSION['login_member'])){
 	'".$_SESSION['total_tagihan']."', 
 	'".$idheader."', 
 	'".$biaya_kirim."', 
-	'".$_SESSION['login_member']['id']."', 
+	'".$_SESSION['login_member']['id_user']."', 
 	'".$date."')
 	");
 	unset($_SESSION['cart']);

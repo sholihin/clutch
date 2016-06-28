@@ -6,7 +6,7 @@ $lokasi = $_POST['lokasi'];
 $tarif = $_POST['tarif'];
 
 $sql = "
-UPDATE `shipping` SET `lokasi` = '".$lokasi."', `tarif` = '".$tarif."' WHERE `id` = '".$id."'";
+UPDATE `shipping` SET `lokasi` = '".$lokasi."', `tarif` = '".$tarif."' WHERE `id_shipping` = '".$id."'";
 
 $query = mysqli_query($koneksi, $sql);
 if($query){

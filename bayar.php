@@ -19,7 +19,7 @@ $query = mysqli_query($koneksi, "INSERT INTO `konfirmasi` VALUES (
 	'".$_POST['jumlah_bayar']."', 
 	'".$file_name."', 
 	'".$_POST['keterangan']."', 
-	'".$_SESSION['login_member']['id']."', 
+	'".$_SESSION['login_member']['id_user']."', 
 	'".date('Y-m-d H:i:s')."')");
 
 if($query){

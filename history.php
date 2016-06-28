@@ -15,7 +15,7 @@
         <?php
           session_start();
           include "koneksi.php";
-          $query = mysqli_query($koneksi, "SELECT * FROM `invoice` where `user_id` = '".$_SESSION['login_member']['id']."' ORDER BY `id_invoice` DESC");
+          $query = mysqli_query($koneksi, "SELECT * FROM `invoice` where `user_id` = '".$_SESSION['login_member']['id_user']."' ORDER BY `id_invoice` DESC");
           while($data = mysqli_fetch_array($query)){
         ?>
         <tr>

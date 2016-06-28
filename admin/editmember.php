@@ -1,13 +1,13 @@
 <?php
 include "../koneksi.php";
-$query = mysqli_query($koneksi, "SELECT * from user where id='".$_GET['id']."'");
+$query = mysqli_query($koneksi, "SELECT * from user where id_user='".$_GET['id']."'");
 $row = mysqli_fetch_array($query);
 ?>
 
 <section id="main" class="grid_9 push_3">
 <article id="dashboard" style="padding:5px;">
 <form method="POST" action="updatemember.php" enctype="multipart/form-data">
-          <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+          <input type="hidden" name="id" value="<?php echo $row['id_user']; ?>">
           <fieldset>
           <legend>Edit Member</legend>
           <dl class="inline">

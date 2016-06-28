@@ -17,7 +17,7 @@ SELECT
     cart.status_pemesan
 FROM `cart`
 INNER JOIN user 
-    ON cart.id_user = user.id
+    ON cart.id_user = user.id_user
 LEFT OUTER JOIN product
     ON cart.id_produk = product.id_product
 WHERE cart.id_header_transaction = '".$_GET['d']."'";
