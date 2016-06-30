@@ -8,7 +8,7 @@ $sql = "UPDATE `invoice` SET `status` = '".$status."' WHERE `id_invoice` = '".$i
 $query = mysqli_query($koneksi, $sql);
 if($query){
 	if($status == 'ditolak'){
-		$s = "SELECT * FROM `cart` WHERE `id_header_transaction` = '".$_POST['id_header_transaction']."'";
+		$s = "SELECT * FROM `cart` WHERE `id_header` = '".$_POST['id_header']."'";
 		$q = mysqli_query($koneksi, $s);
 		foreach($q as $row){
 			$updatesql = "
@@ -19,7 +19,7 @@ if($query){
 			mysqli_query($koneksi, $updatesql);
 		}
 	}elseif($status == 'selesai'){
-		$s = "SELECT * FROM `cart`  WHERE `id_header_transaction` = '".$_POST['id_header_transaction']."'";
+		$s = "SELECT * FROM `cart`  WHERE `id_header` = '".$_POST['id_header']."'";
 		$q = mysqli_query($koneksi, $s);
 
 		foreach($q as $row){

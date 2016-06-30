@@ -113,7 +113,7 @@
           $total += ($data['qty'] * $data['price_product']);
         ?>
         <tr>
-          <td><?php echo $data['invoice']; ?></td>
+          <td><?php echo $data['id_invoice']; ?></td>
           <td><?php echo $data['total_tagihan']; ?></td>
           <td><?php echo $data['nama_bank']; ?></td>
           <td><?php echo $data['no_rekening']; ?></td>

@@ -13,14 +13,14 @@ SELECT
     product.id_product,
     cart.qty,
     cart.date,
-    cart.id_header_transaction,
+    cart.id_header,
     cart.status_pemesan
 FROM `cart`
 INNER JOIN user 
     ON cart.id_user = user.id_user
 LEFT OUTER JOIN product
     ON cart.id_produk = product.id_product
-WHERE cart.id_header_transaction = '".$_GET['d']."'";
+WHERE cart.id_header = '".$_GET['d']."'";
 $total = 0;
 ?>
 <div class="login" style="margin:0 auto;">

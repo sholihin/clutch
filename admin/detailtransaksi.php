@@ -12,13 +12,13 @@ SELECT
     product.price_product,
     cart.qty,
     cart.date,
-    cart.id_header_transaction
+    cart.id_header
 FROM `cart`
 INNER JOIN user 
     ON cart.id_user = user.id_user
 LEFT OUTER JOIN product
     ON cart.id_produk = product.id_product
-WHERE cart.id_header_transaction = '".$_GET['id']."'";
+WHERE cart.id_header = '".$_GET['id']."'";
 $total = 0;
 $query = mysqli_query($koneksi, $sql);
 $row = mysqli_fetch_array($query);

@@ -11,7 +11,7 @@ $sql = "
 		  invoice.date
 		FROM `invoice`
 		LEFT JOIN user 
-		  ON invoice.user_id = user.id_user
+		  ON invoice.id_user = user.id_user
 		WHERE 
 		invoice.date BETWEEN '".$_GET['from']." 00:00:00' AND '".$_GET['to']." 23:59:00' AND
 		invoice.status = 'selesai'

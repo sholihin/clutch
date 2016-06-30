@@ -15,11 +15,11 @@
         <?php
           session_start();
           include "koneksi.php";
-          $query = mysqli_query($koneksi, "SELECT * FROM `invoice` where `user_id` = '".$_SESSION['login_member']['id_user']."' ORDER BY `id_invoice` DESC");
+          $query = mysqli_query($koneksi, "SELECT * FROM `invoice` where `id_user` = '".$_SESSION['login_member']['id_user']."' ORDER BY `id_invoice` DESC");
           while($data = mysqli_fetch_array($query)){
         ?>
         <tr>
-          <td><a href="index.php?page=detail-transaksi&d=<?php echo $data['id_header_transaction']; ?>" style="color:#2196f3"><?php echo $data['id_invoice']; ?></a></td>
+          <td><a href="index.php?page=detail-transaksi&d=<?php echo $data['id_header']; ?>" style="color:#2196f3"><?php echo $data['id_invoice']; ?></a></td>
           <td><?php echo $data['total_tagihan']; ?></td>
           <td><?php echo $data['status']; ?></td>
           <td><?php echo $data['date']; ?></td>

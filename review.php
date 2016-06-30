@@ -2,7 +2,7 @@
 	<table id="signup">
 	<tr>
 		<td colspan="2" style="text-align: left;font-size:12px">KOMENTAR PRODUK<br /><br />
-		<input type="hidden" name="product_id" value="<?php echo $_GET['pid']; ?>">
+		<input type="hidden" name="id_product" value="<?php echo $_GET['pid']; ?>">
 	    <textarea name="komentar" required style="border-radius: 2px;
 	    border: 0px;
 	    background-color: whitesmoke;

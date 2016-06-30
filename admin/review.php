@@ -21,9 +21,9 @@
                   review.komentar
               FROM review
               INNER JOIN user
-                ON review.user_id = user.id_user
+                ON review.id_user = user.id_user
               LEFT OUTER JOIN product
-                ON review.product_id = product.id_product
+                ON review.id_product = product.id_product
           ";
           $query = mysqli_query($koneksi, $sql);
           foreach($query as $data){

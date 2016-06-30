@@ -20,14 +20,14 @@
           <td><?php echo $data['id_invoice']; ?></td>
           <td><?php echo $data['total_tagihan']; ?></td>
           <td>
-            <button onclick="window.location.href='index.php?module=detailtransaksi&id=<?php echo $data['id_header_transaction']; ?>'">
+            <button onclick="window.location.href='index.php?module=detailtransaksi&id=<?php echo $data['id_header']; ?>'">
             Lihat Detail</button>
             
           </td>
           <td>
           <form action="updatepemesanan.php" method="POST">
           <input type="hidden" name="id" value="<?php echo $data['id_invoice']; ?>">
-          <input type="hidden" name="id_header_transaction" value="<?php echo $data['id_header_transaction']; ?>">
+          <input type="hidden" name="id_header" value="<?php echo $data['id_header']; ?>">
           <select name="status" id="status" onchange="this.form.submit()"">
             <?php 
               $array = array('checkout','konfirmasi','diterima','ditolak','proses','komplain','retur','kembalikan_dana','selesai');
