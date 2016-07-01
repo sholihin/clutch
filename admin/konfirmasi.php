@@ -60,24 +60,6 @@
     to {transform:scale(1)}
 }
 
-/* The Close Button */
-.close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-}
-
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
     .modal-content {
@@ -120,44 +102,67 @@
           <td><?php echo $data['atas_nama']; ?></td>
           <td><?php echo $data['rekening_tujuan']; ?></td>
           <td><?php echo $data['jumlah_bayar']; ?></td>
-          <td><img src="../buktibayar/<?php echo $data['bukti']; ?>" id="myImg" width="70" height="70"></td>
+          <td>
+          <?php if($data['bukti'] != ""){ ?>
+            <img src="../buktibayar/<?php echo $data['bukti']; ?>" id="myImg<?php echo $data['id_invoice']; ?>" width="70" height="70">
+          <?php }else{ ?>
+            <img src="../buktibayar/kosong.png" id="myImg<?php echo $data['id_invoice']; ?>" width="70" height="70">
+          <?php } ?>
+          </td>
           <td><?php echo $data['keterangan']; ?></td>
           <td><?php echo $data['date']; ?></td>
         </tr>
-        <?php } ?>
+        <?php 
+        echo "
+        <style>
+        .close".$data['id_invoice']." {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close".$data['id_invoice'].":hover,
+        .close".$data['id_invoice'].":focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        </style>
+        ";
+        echo "
+        <div id='myModal".$data['id_invoice']."' class='modal'>
+          <span class='close".$data['id_invoice']."' id='exit".$data['id_invoice']."'>×</span>
+          <img class='modal-content' id='img".$data['id_invoice']."'>
+          <div id='caption'></div>
+        </div>
+        ";
+        echo "
+        <script>
+          var modal".$data['id_invoice']." = document.getElementById('myModal".$data['id_invoice']."');
+          var img".$data['id_invoice']." = document.getElementById('myImg".$data['id_invoice']."');
+          var modalImg".$data['id_invoice']." = document.getElementById('img".$data['id_invoice']."');
+          var captionText".$data['id_invoice']." = document.getElementById('caption');
+          img".$data['id_invoice'].".onclick = function(){
+              modal".$data['id_invoice'].".style.display = 'block';
+              modalImg".$data['id_invoice'].".src = this.src;
+              modalImg".$data['id_invoice'].".alt = this.alt;
+              captionText".$data['id_invoice'].".innerHTML = this.alt;
+          }
+          var spanx".$data['id_invoice']." = document.getElementById('exit".$data['id_invoice']."');
+
+          spanx".$data['id_invoice'].".onclick = function() {
+              modal".$data['id_invoice'].".style.display = 'none';
+              console.log('halo');
+          }
+        </script>
+        ";
+        } ?>
       </tbody>
     </table>
     </div>
   </article>
 </section>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-  <span class="close">×</span>
-  <img class="modal-content" id="img01">
-  <div id="caption"></div>
-</div>
-
-<script>
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById('myImg');
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
-img.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    modalImg.alt = this.alt;
-    captionText.innerHTML = this.alt;
-}
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-</script>
