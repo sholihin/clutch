@@ -2,7 +2,7 @@
   <article id="formadd" style="padding:5px;display:none">
       <form method="POST" action="addshipping.php" enctype="multipart/form-data">
           <fieldset>
-          <legend>Tambah Produk</legend>
+          <legend>Tambah Kota</legend>
           <dl class="inline">
           <dt><label>Kota</label></dt>
           <dd> : <input type="text" name="kota" value="" size="30"></dd>
@@ -17,8 +17,8 @@
   </article>
 
   <article id="dashboard">
-    <h2>Daftar Produk</h2><hr>
-    <input type="button" class="button blue" value="Tambah Produk" onclick="showadd()">
+    <h2>Daftar Kota</h2><hr>
+    <input type="button" class="button blue" value="Tambah Kota" onclick="showadd()">
     <br><br>
     <table id="table1" class="gtable sortable">
       <thead>

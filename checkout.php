@@ -54,7 +54,6 @@ if(isset($_SESSION['login_member'])){
 		$biaya_kirim = ($_POST['ongkir'] * 5);
 	}
 
-	echo $biaya_kirim;
 	mysqli_query($koneksi, "INSERT INTO `invoice` VALUES (
 	'".$hasilkode."', 
 	'checkout', 
